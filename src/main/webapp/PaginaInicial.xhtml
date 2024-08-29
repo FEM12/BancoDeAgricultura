@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Banco de Agricultura Salvadoreño</title>
+
+    <!-- Estilos CSS -->
+    <style>
+        /* Reset de estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Estilos del encabezado */
+        .main-header {
+            background-color: #004d40;
+            color: #fff;
+            padding: 15px 0;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            max-height: 50px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav li {
+            margin: 0 15px;
+        }
+
+        .main-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .main-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilos del slider */
+        .slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .slider-container {
+            display: flex;
+            transition: transform 0.7s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            display: block;
+        }
+
+        .slide-text {
+            position: absolute;
+            bottom: 30%;
+            left: 10%;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 80%;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .slider-btn:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        /* Estilos de la sección de información */
+        .info-section {
+            padding: 50px 0;
+            background-color: #f1f1f1;
+        }
+
+        .info-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .info-cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .info-card {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            width: 30%;
+        }
+
+        .info-card h3 {
+            margin-bottom: 15px;
+            color: #004d40;
+        }
+
+        .info-card p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .info-card .btn {
+            text-decoration: none;
+            color: #fff;
+            background-color: #00796b;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .info-card .btn:hover {
+            background-color: #004d40;
+        }
+
+        /* Estilos del pie de página */
+        .footer {
+            background-color: #004d40;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<!-- Encabezado -->
+<header class="main-header">
+    <div class="container">
+        <div class="logo">
+            <img src="resources/banco.png" alt="Banco de Agricultura Salvadoreño"/>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Clientes</a></li>
+                <li><a href="#">Empresas</a></li>
+                <li><a href="#">Sucursales</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Slider de Promociones -->
+<div class="slider">
+    <div class="slider-container">
+        <div class="slide">
+            <img src="banco.png" alt="Promoción 1"/>
+            <div class="slide-text">
+                <h2>Tu Mejor Experiencia Financiera</h2>
+                <p>Únete al Banco de Agricultura Salvadoreño y accede a beneficios únicos.</p>
+                <a href="#" class="btn">Descubre Más</a>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="resources/" alt="Banco de Agricultura Salvadoreño"/>
+            <div class="slide-text">
+                <h2>Créditos Personales Flexibles</h2>
+                <p>Aplica hoy y obtén las mejores tasas para tus proyectos.</p>
+                <a href="#" class="btn">Solicita Ahora</a>
+            </div>
+        </div>
+        <!-- Más diapositivas según sea necesario -->
+    </div>
+    <button class="slider-btn prev-btn">❮</button>
+    <button class="slider-btn next-btn">❯</button>
+</div>
+
+<!-- Información y Promociones -->
+<section class="info-section">
+    <div class="container">
+        <h2>¿Qué quieres hacer hoy?</h2>
+        <div class="info-cards">
+            <div class="info-card">
+                <h3>Abrir una Cuenta</h3>
+                <p>Explora nuestras opciones de cuenta y encuentra la ideal para ti.</p>
+                <a href="AperturadeCuenta.xhtml" class="btn">Ver Opciones</a>
+            </div>
+            <div class="info-card">
+                <h3>Solicitar un Crédito</h3>
+                <p>Tenemos créditos que se adaptan a tus necesidades. Conócelos.</p>
+                <a href="SolicitarCredito.xhtml" class="btn">Solicitar Crédito</a>
+            </div>
+            <div class="info-card">
+                <h3>Inversiones</h3>
+                <p>Descubre oportunidades de inversión y maximiza tu dinero.</p>
+                <a href="VerInversiones.xhtml" class="btn">Ver Más</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pie de página -->
+<footer class="footer">
+    <div class="container">
+        <p> &amp; Banco de Agricultura Salvadoreño. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<!-- Scripts JavaScript -->
+<script>
+    // JavaScript para controlar el slider
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.next-btn').addEventListener('click', () => {
+            showSlide(currentIndex + 1);
+        });
+
+        document.querySelector('.prev-btn').addEventListener('click', () => {
+            showSlide(currentIndex - 1);
+        });
+
+        showSlide(currentIndex); // Mostrar el primer slide al cargar la página
+    });
+
+    function showSlide(index) {
+        if (index >= totalSlides) {
+            currentIndex = 0;
+        } else if (index &lt; 0) {
+            currentIndex = totalSlides - 1;
+        } else {
+            currentIndex = index;
+        }
+        const offset = -currentIndex * 100;
+        document.querySelector('.slider-container').style.transform = `translateX(${offset}%)`;
+    }
+</script>
+</body>
+</html>
