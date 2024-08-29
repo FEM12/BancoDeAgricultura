@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="sv.edu.udb.www.entities.Empleado" table="empleado" schema="bancodeagricultura">
+        <id name="id">
+            <column name="ID" sql-type="int(11)"/>
+        </id>
+        <property name="nombres">
+            <column name="Nombres" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="apellidos">
+            <column name="Apellidos" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="genero">
+            <column name="Genero" sql-type="varchar(10)" length="10"/>
+        </property>
+        <property name="documentoDeIdentidad">
+            <column name="DocumentoDeIdentidad" sql-type="char(10)" length="10"/>
+        </property>
+        <property name="fechaDeNacimiento">
+            <column name="FechaDeNacimiento" sql-type="date"/>
+        </property>
+        <property name="telefonoMovil">
+            <column name="TelefonoMovil" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="correoElectronico">
+            <column name="CorreoElectronico" sql-type="text"/>
+        </property>
+        <property name="idSucursal">
+            <column name="ID_Sucursal" sql-type="int(11)"/>
+        </property>
+        <property name="idSupervisor">
+            <column name="ID_Supervisor" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="cargo">
+            <column name="Cargo" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="estado">
+            <column name="Estado" sql-type="varchar(8)" length="8"/>
+        </property>
+    </class>
+</hibernate-mapping>

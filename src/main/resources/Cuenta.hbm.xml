@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="sv.edu.udb.www.entities.Cuenta" table="cuenta" schema="bancodeagricultura">
+        <id name="id">
+            <column name="ID" sql-type="int(11)"/>
+        </id>
+        <property name="numeroDeCuenta">
+            <column name="NumeroDeCuenta" sql-type="char(20)" length="20"/>
+        </property>
+        <property name="tipoDeCuenta">
+            <column name="TipoDeCuenta" sql-type="text"/>
+        </property>
+        <property name="fechaDeApertura">
+            <column name="FechaDeApertura" sql-type="date"/>
+        </property>
+        <property name="saldo">
+            <column name="Saldo" sql-type="decimal(20,2)" precision="20" scale="2"/>
+        </property>
+        <property name="limiteDeTransaccionesPorMes">
+            <column name="LimiteDeTransaccionesPorMes" sql-type="int(11)"/>
+        </property>
+        <property name="estado">
+            <column name="Estado" sql-type="varchar(8)" length="8"/>
+        </property>
+        <property name="idCliente">
+            <column name="ID_Cliente" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>

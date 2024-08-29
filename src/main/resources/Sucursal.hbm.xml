@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="sv.edu.udb.www.entities.Sucursal" table="sucursal" schema="bancodeagricultura">
+        <id name="id">
+            <column name="ID" sql-type="int(11)"/>
+        </id>
+        <property name="direccion">
+            <column name="Direccion" sql-type="text"/>
+        </property>
+        <property name="telefonoFijo">
+            <column name="TelefonoFijo" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="correoElectronico">
+            <column name="CorreoElectronico" sql-type="text" not-null="true"/>
+        </property>
+        <property name="idGerenteDeSucursal">
+            <column name="ID_GerenteDeSucursal" sql-type="int(11)"/>
+        </property>
+        <property name="idGerenteGeneral">
+            <column name="ID_GerenteGeneral" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>

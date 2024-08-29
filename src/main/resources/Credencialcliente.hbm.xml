@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="sv.edu.udb.www.entities.Credencialcliente" table="credencialcliente" schema="bancodeagricultura">
+        <id name="id">
+            <column name="ID" sql-type="int(11)"/>
+        </id>
+        <property name="usuario">
+            <column name="Usuario" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="contrasena">
+            <column name="Contrasena" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="idCliente">
+            <column name="ID_Cliente" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>

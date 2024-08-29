@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="sv.edu.udb.www.entities.Cliente" table="cliente" schema="bancodeagricultura">
+        <id name="id">
+            <column name="ID" sql-type="int(11)"/>
+        </id>
+        <property name="nombres">
+            <column name="Nombres" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="apellidos">
+            <column name="Apellidos" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="genero">
+            <column name="Genero" sql-type="varchar(10)" length="10"/>
+        </property>
+        <property name="documentoDeIdentidad">
+            <column name="DocumentoDeIdentidad" sql-type="char(10)" length="10"/>
+        </property>
+        <property name="fechaDeNacimiento">
+            <column name="FechaDeNacimiento" sql-type="date"/>
+        </property>
+        <property name="estadoCivil">
+            <column name="EstadoCivil" sql-type="varchar(15)" length="15"/>
+        </property>
+        <property name="ocupacion">
+            <column name="Ocupacion" sql-type="text"/>
+        </property>
+        <property name="ingresoMensual">
+            <column name="IngresoMensual" sql-type="decimal(20,2)" precision="20" scale="2"/>
+        </property>
+        <property name="direccion">
+            <column name="Direccion" sql-type="text"/>
+        </property>
+        <property name="telefonoMovil">
+            <column name="TelefonoMovil" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="correoElectronico">
+            <column name="CorreoElectronico" sql-type="text"/>
+        </property>
+        <property name="clasificacionDeCliente">
+            <column name="ClasificacionDeCliente" sql-type="text"/>
+        </property>
+        <property name="descripcion">
+            <column name="Descripcion" sql-type="text"/>
+        </property>
+    </class>
+</hibernate-mapping>
