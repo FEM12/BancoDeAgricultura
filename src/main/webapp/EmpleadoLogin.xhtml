@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: Victor Marroquin
+  Date: 29/8/2024
+  Time: 01:43 p. m.
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+    <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+    <title>Sistema de Gestión</title>
+</h:head>
+
+<h:body class="bg-gradient-to-r from-blue-800 to-blue-500 flex justify-center items-center h-screen m-0">
+
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">BIENVENIDO/A</h2>
+        <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Porfavor Digite sus Credenciales de Acceso</h2>
+
+        <h:form>
+
+            <div class="mb-4">
+                <h:inputText
+                        id="username"
+                        a:placeholder="Usuario"
+                        value="#{bean.username}"
+                        styleClass="block w-full p-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-0"
+                />
+            </div>
+
+            <div class="mb-4">
+                <h:inputSecret
+                        id="password"
+                        a:placeholder="Contraseña"
+                        value="#{bean.password}"
+                        styleClass="block w-full p-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-0"
+                />
+            </div>
+
+            <div class="mb-4">
+                <h:commandButton
+                        value="Ingresar"
+                        action="#{bean.login}"
+                        styleClass="block w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg focus:ring-0"
+                />
+            </div>
+
+        </h:form>
+
+    </div>
+
+</h:body>
+
+</html>
