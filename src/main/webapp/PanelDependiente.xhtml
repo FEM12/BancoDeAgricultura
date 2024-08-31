@@ -1,157 +1,26 @@
-<!DOCTYPE html>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
 <h:head>
+    <h:outputStylesheet name="css/PanelDependiente.css"/>
     <title>Panel del Dependiente - Banco de Agricultura Salvadoreño</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
-    <!-- Estilos CSS -->
-    <style>
-        /* Reset de estilos */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Estilos del encabezado */
-        .main-header {
-            background-color: #333;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-            position: relative;
-        }
-
-        .main-nav {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .main-nav button {
-            background-color: #fcbf16;
-            border: none;
-            color: #fff;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .main-nav button.active {
-            background-color: #f9a825;
-        }
-
-        .container {
-            width: 90%;
-            margin: 0 auto;
-        }
-
-        .section {
-            padding: 20px;
-            background-color: #f8f8f8;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-container h2 {
-            margin-bottom: 20px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .btn {
-            background-color: #fcbf16;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #f9a825;
-        }
-
-        .table-container {
-            margin-top: 20px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #fcbf16;
-            color: #fff;
-        }
-
-        .logout-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: #e53935;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .logout-button:hover {
-            background-color: #c62828;
-        }
-    </style>
 </h:head>
 <h:body>
-    <!-- Encabezado -->
-    <header class="main-header">
+
+    <div class="main-header">
         <h1>Panel del Dependiente - Banco de Agricultura Salvadoreño</h1>
         <button class="logout-button" onclick="window.location.href='logout.xhtml'">Cerrar Sesión</button>
-    </header>
+    </div>
 
-    <!-- Menú de Navegación -->
-    <nav class="main-nav">
+    <div class="main-nav">
         <button id="btnOperaciones" onclick="showSection('operaciones')">Operaciones</button>
-    </nav>
+    </div>
 
     <div class="container">
         <!-- Sección de Operaciones -->
@@ -159,7 +28,6 @@
             <div class="form-container">
                 <h2>Operaciones de Cuenta</h2>
 
-                <!-- Formulario para ingresar el DUI del cliente -->
                 <div class="form-container">
                     <h2>Buscar Cliente</h2>
                     <h:form id="formBuscarCliente">
@@ -171,9 +39,10 @@
                     </h:form>
                 </div>
 
-                <!-- Tabla de Cuentas -->
                 <div class="table-container" id="tableCuentas" style="display: none;">
                     <h2>Listado de Cuentas</h2>
+
+                    <!-- Ejemplo de datos -->
                     <table>
                         <thead>
                         <tr>
@@ -184,7 +53,6 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <!-- Ejemplo de datos -->
                         <tr>
                             <td>1234567890</td>
                             <td>Ahorro</td>
@@ -194,13 +62,11 @@
                                 <button class="btn" onclick="mostrarFormulario('retiro', '1234567890')">Retirar</button>
                             </td>
                         </tr>
-                        <!-- Agregar más filas según sea necesario -->
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Formulario de Abono -->
-                <div class="form-container" id="formAbono" style="display: none;">
+                <div class="form-container" style="display: none;">
                     <h2>Formulario de Abono</h2>
                     <h:form id="formAbono">
                         <div class="form-group">
@@ -211,8 +77,7 @@
                     </h:form>
                 </div>
 
-                <!-- Formulario de Retiro -->
-                <div class="form-container" id="formRetiro" style="display: none;">
+                <div class="form-container" style="display: none;">
                     <h2>Formulario de Retiro</h2>
                     <h:form id="formRetiro">
                         <div class="form-group">
@@ -222,6 +87,7 @@
                         <h:commandButton value="Realizar Retiro" type="button" onclick="realizarRetiro()" styleClass="btn"/>
                     </h:form>
                 </div>
+
             </div>
         </div>
     </div>
@@ -230,7 +96,7 @@
     <script type="text/javascript">
         function showSection(sectionId) {
             // Ocultar todas las secciones
-            var sections = document.querySelectorAll('.section');
+            let sections = document.querySelectorAll('.section');
             sections.forEach(function (section) {
                 section.style.display = 'none';
             });
@@ -244,7 +110,7 @@
             document.getElementById('tableCuentas').style.display = 'block';
         }
 
-        function mostrarFormulario(tipo, numeroCuenta) {
+        function mostrarFormulario(tipo) {
             // Oculta todos los formularios
             document.getElementById('formAbono').style.display = 'none';
             document.getElementById('formRetiro').style.display = 'none';
