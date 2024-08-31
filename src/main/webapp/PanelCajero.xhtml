@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Panel del Cajero - Banco de Agricultura Salvadoreño</title>
+    <meta charset="UTF-8"/>
+
+    <!-- Estilos CSS -->
+    <style>
+        /* Reset de estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos del encabezado */
+        .main-header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .main-nav button {
+            background-color: #fcbf16;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .main-nav button.active {
+            background-color: #f9a825;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .section {
+            display: none;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .btn {
+            background-color: #fcbf16;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #f9a825;
+        }
+
+        .table-container {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #fcbf16;
+            color: #fff;
+        }
+    </style>
+</h:head>
+<h:body>
+    <!-- Encabezado -->
+    <header class="main-header">
+        <h1>Panel del Cajero - Banco de Agricultura Salvadoreño</h1>
+    </header>
+
+    <!-- Menú de Navegación -->
+    <nav class="main-nav">
+        <button id="btnClientes" onclick="showSection('clientes')">Registrar Cliente</button>
+        <button id="btnDependientes" onclick="showSection('dependientes')">Agregar Dependiente</button>
+        <button id="btnTransacciones" onclick="showSection('transacciones')">Realizar Transacciones</button>
+        <button id="btnPrestamos" onclick="showSection('prestamos')">Apertura de Préstamos</button>
+        <h:form id="formLogout">
+            <h:commandButton value="Cerrar Sesión" action="#{cajeroBean.logout}" class="btn" style="background-color: #d32f2f; margin-left: auto;"/>
+        </h:form>
+    </nav>
+
+    <div class="container">
+        <!-- Sección de Registro de Cliente -->
+        <div id="clientes" class="section">
+            <div class="form-container">
+                <h2>Registro de Cliente</h2>
+                <h:form id="formClientes">
+                    <div class="form-group">
+                        <h:outputLabel for="nombresCliente" value="Nombres:" />
+                        <h:inputText id="nombresCliente" value="#{cajeroBean.nombresCliente}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="apellidosCliente" value="Apellidos:" />
+                        <h:inputText id="apellidosCliente" value="#{cajeroBean.apellidosCliente}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="generoCliente" value="Género:" />
+                        <h:selectOneMenu id="generoCliente" value="#{cajeroBean.generoCliente}">
+                            <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
+                            <f:selectItem itemLabel="Femenino" itemValue="Femenino"/>
+                        </h:selectOneMenu>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="documentoIdentidadCliente" value="Documento de Identidad:" />
+                        <h:inputText id="documentoIdentidadCliente" value="#{cajeroBean.documentoIdentidadCliente}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="fechaNacimientoCliente" value="Fecha de Nacimiento:" />
+                        <h:inputText id="fechaNacimientoCliente" value="#{cajeroBean.fechaNacimientoCliente}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="estadoCivilCliente" value="Estado Civil:" />
+                        <h:selectOneMenu id="estadoCivilCliente" value="#{cajeroBean.estadoCivilCliente}">
+                            <f:selectItem itemLabel="Soltero" itemValue="Soltero"/>
+                            <f:selectItem itemLabel="Casado" itemValue="Casado"/>
+                            <f:selectItem itemLabel="Divorciado" itemValue="Divorciado"/>
+                            <f:selectItem itemLabel="Viudo" itemValue="Viudo"/>
+                        </h:selectOneMenu>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="ocupacionCliente" value="Ocupación:" />
+                        <h:inputTextarea id="ocupacionCliente" value="#{cajeroBean.ocupacionCliente}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="ingresoMensualCliente" value="Ingreso Mensual:" />
+                        <h:inputText id="ingresoMensualCliente" value="#{cajeroBean.ingresoMensualCliente}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="direccionCliente" value="Dirección:" />
+                        <h:inputTextarea id="direccionCliente" value="#{cajeroBean.direccionCliente}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="telefonoMovilCliente" value="Teléfono Móvil:" />
+                        <h:inputText id="telefonoMovilCliente" value="#{cajeroBean.telefonoMovilCliente}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="correoElectronicoCliente" value="Correo Electrónico:" />
+                        <h:inputText id="correoElectronicoCliente" value="#{cajeroBean.correoElectronicoCliente}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="clasificacionCliente" value="Clasificación de Cliente:" />
+                        <h:inputTextarea id="clasificacionCliente" value="#{cajeroBean.clasificacionCliente}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="descripcionCliente" value="Descripción:" />
+                        <h:inputTextarea id="descripcionCliente" value="#{cajeroBean.descripcionCliente}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:commandButton value="Registrar Cliente" action="#{cajeroBean.registrarCliente}" class="btn"/>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+
+        <!-- Sección de Agregar Dependiente -->
+        <div id="dependientes" class="section">
+            <div class="form-container">
+                <h2>Agregar Dependiente</h2>
+                <h:form id="formDependientes">
+                    <div class="form-group">
+                        <h:outputLabel for="idDependiente" value="ID Dependiente:" />
+                        <h:inputText id="idDependiente" value="#{cajeroBean.idDependiente}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="nombreDependiente" value="Nombre Dependiente:" />
+                        <h:inputText id="nombreDependiente" value="#{cajeroBean.nombreDependiente}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="telefonoMovilDependiente" value="Teléfono Móvil:" />
+                        <h:inputText id="telefonoMovilDependiente" value="#{cajeroBean.telefonoMovilDependiente}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="correoElectronicoDependiente" value="Correo Electrónico:" />
+                        <h:inputText id="correoElectronicoDependiente" value="#{cajeroBean.correoElectronicoDependiente}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:commandButton value="Agregar Dependiente" action="#{cajeroBean.agregarDependiente}" class="btn"/>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+
+        <!-- Sección de Realizar Transacciones -->
+        <div id="transacciones" class="section">
+            <div class="form-container">
+                <h2>Realizar Transacciones</h2>
+                <h:form id="formTransacciones">
+                    <div class="form-group">
+                        <h:outputLabel for="numeroCuentaTransaccion" value="Número de Cuenta:" />
+                        <h:inputText id="numeroCuentaTransaccion" value="#{cajeroBean.numeroCuentaTransaccion}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="montoTransaccion" value="Monto:" />
+                        <h:inputText id="montoTransaccion" value="#{cajeroBean.montoTransaccion}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="tipoTransaccion" value="Tipo de Transacción:" />
+                        <h:selectOneMenu id="tipoTransaccion" value="#{cajeroBean.tipoTransaccion}">
+                            <f:selectItem itemLabel="Depósito" itemValue="Depósito"/>
+                            <f:selectItem itemLabel="Retiro" itemValue="Retiro"/>
+                        </h:selectOneMenu>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="fechaHoraTransaccion" value="Fecha y Hora:" />
+                        <h:inputText id="fechaHoraTransaccion" value="#{cajeroBean.fechaHoraTransaccion}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:commandButton value="Realizar Transacción" action="#{cajeroBean.realizarTransaccion}" class="btn"/>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+
+        <!-- Sección de Apertura de Préstamos -->
+        <div id="prestamos" class="section">
+            <div class="form-container">
+                <h2>Apertura de Préstamos</h2>
+                <h:form id="formPrestamos">
+                    <div class="form-group">
+                        <h:outputLabel for="numeroCuentaPrestamo" value="Número de Cuenta:" />
+                        <h:inputText id="numeroCuentaPrestamo" value="#{cajeroBean.numeroCuentaPrestamo}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="montoPrestamo" value="Monto del Préstamo:" />
+                        <h:inputText id="montoPrestamo" value="#{cajeroBean.montoPrestamo}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="plazoPrestamo" value="Plazo (en meses):" />
+                        <h:inputText id="plazoPrestamo" value="#{cajeroBean.plazoPrestamo}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="tasaInteresPrestamo" value="Tasa de Interés (%):" />
+                        <h:inputText id="tasaInteresPrestamo" value="#{cajeroBean.tasaInteresPrestamo}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:commandButton value="Aperturar Préstamo" action="#{cajeroBean.aperturarPrestamo}" class="btn"/>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para la funcionalidad de cambio de secciones -->
+    <script>
+        function showSection(sectionId) {
+            // Oculta todas las secciones
+            document.querySelectorAll('.section').forEach(function(section) {
+                section.classList.remove('active');
+            });
+
+            // Muestra la sección seleccionada
+            document.getElementById(sectionId).classList.add('active');
+
+            // Resalta el botón activo
+            document.querySelectorAll('.main-nav button').forEach(function(button) {
+                button.classList.remove('active');
+            });
+            document.getElementById('btn' + sectionId.charAt(0).toUpperCase() + sectionId.slice(1)).classList.add('active');
+        }
+    </script>
+</h:body>
+</html>
