@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Panel del Cliente - Banco de Agricultura Salvadoreño</title>
+    <meta charset="UTF-8"/>
+
+    <!-- Estilos CSS -->
+    <style>
+        /* Reset de estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos del encabezado */
+        .main-header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Estilos del botón de cerrar sesión */
+        .logout-btn {
+            background-color: #fcbf16;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .logout-btn:hover {
+            background-color: #f9a825;
+        }
+
+        /* Estilos del menú de navegación */
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .main-nav button {
+            background-color: #fcbf16;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .main-nav button.active {
+            background-color: #f9a825;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section {
+            display: none;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            background-color: #fcbf16;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #f9a825;
+        }
+
+        .table-container {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #fcbf16;
+            color: #fff;
+        }
+    </style>
+</h:head>
+<h:body>
+    <!-- Encabezado -->
+    <header class="main-header">
+        <h1>Panel del Cliente - Banco de Agricultura Salvadoreño</h1>
+        <!-- Botón de Cerrar Sesión -->
+        <h:form>
+            <h:commandButton value="Cerrar Sesión" action="#{clienteBean.cerrarSesion}" styleClass="logout-btn"/>
+        </h:form>
+    </header>
+
+    <!-- Menú de Navegación -->
+    <nav class="main-nav">
+        <button id="btnMisCuentas" onclick="showSection('misCuentas')">Mis Cuentas</button>
+        <button id="btnMisMovimientos" onclick="showSection('misMovimientos')">Mis Movimientos</button>
+        <button id="btnCrearCuenta" onclick="showSection('crearCuenta')">Crear Cuenta</button>
+    </nav>
+
+    <div class="container">
+        <!-- Sección Mis Cuentas -->
+        <div id="misCuentas" class="section">
+            <div class="table-container">
+                <h2>Mis Cuentas</h2>
+                <h:form id="formMisCuentas">
+                    <h:dataTable value="#{clienteBean.cuentas}" var="cuenta">
+                        <h:column>
+                            <f:facet name="header">Número de Cuenta</f:facet>
+                            <h:outputText value="#{cuenta.numeroDeCuenta}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Tipo de Cuenta</f:facet>
+                            <h:outputText value="#{cuenta.tipoDeCuenta}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Fecha de Apertura</f:facet>
+                            <h:outputText value="#{cuenta.fechaDeApertura}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Saldo</f:facet>
+                            <h:outputText value="#{cuenta.saldo}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Límite de Transacciones</f:facet>
+                            <h:outputText value="#{cuenta.limiteDeTransaccionesPorMes}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Estado</f:facet>
+                            <h:outputText value="#{cuenta.estado}" />
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+            </div>
+        </div>
+
+        <!-- Sección Mis Movimientos -->
+        <div id="misMovimientos" class="section">
+            <div class="table-container">
+                <h2>Mis Movimientos</h2>
+                <h:form id="formMisMovimientos">
+                    <h:dataTable value="#{clienteBean.movimientos}" var="movimiento">
+                        <h:column>
+                            <f:facet name="header">Número de Cuenta</f:facet>
+                            <h:outputText value="#{movimiento.numeroCuenta}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Tipo de Transacción</f:facet>
+                            <h:outputText value="#{movimiento.tipoDeTransaccion}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Monto</f:facet>
+                            <h:outputText value="#{movimiento.monto}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Fecha y Hora</f:facet>
+                            <h:outputText value="#{movimiento.fechaHora}" />
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+            </div>
+        </div>
+
+        <!-- Sección Crear Cuenta -->
+        <div id="crearCuenta" class="section">
+            <div class="form-container">
+                <h2>Crear Nueva Cuenta</h2>
+                <h:form id="formCrearCuenta">
+                    <div class="form-group">
+                        <h:outputLabel for="numeroCuenta" value="Número de Cuenta:" />
+                        <h:inputText id="numeroCuenta" value="#{clienteBean.numeroDeCuenta}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="tipoCuenta" value="Tipo de Cuenta:" />
+                        <h:inputText id="tipoCuenta" value="#{clienteBean.tipoDeCuenta}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="fechaApertura" value="Fecha de Apertura:" />
+                        <h:inputText id="fechaApertura" value="#{clienteBean.fechaDeApertura}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="saldo" value="Saldo Inicial:" />
+                        <h:inputText id="saldo" value="#{clienteBean.saldo}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="limiteTransacciones" value="Límite de Transacciones por Mes:" />
+                        <h:inputText id="limiteTransacciones" value="#{clienteBean.limiteDeTransaccionesPorMes}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="estado" value="Estado:" />
+                        <h:selectOneMenu id="estado" value="#{clienteBean.estado}" required="true">
+                            <f:selectItem itemLabel="Activo" itemValue="Activo"/>
+                            <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
+                        </h:selectOneMenu>
+                    </div>
+
+                    <h:commandButton value="Registrar Cuenta" action="#{clienteBean.crearCuenta}" styleClass="btn"/>
+                </h:form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para controlar la visibilidad de las secciones -->
+    <script>
+        function showSection(sectionId) {
+            // Ocultar todas las secciones
+            document.querySelectorAll('.section').forEach(function(section) {
+                section.classList.remove('active');
+            });
+
+            // Activar la sección seleccionada
+            document.getElementById(sectionId).classList.add('active');
+
+            // Actualizar el estado del menú de navegación
+            document.querySelectorAll('.main-nav button').forEach(function(button) {
+                button.classList.remove('active');
+            });
+            document.getElementById('btn' + sectionId.charAt(0).toUpperCase() + sectionId.slice(1)).classList.add('active');
+        }
+    </script>
+</h:body>
+</html>
