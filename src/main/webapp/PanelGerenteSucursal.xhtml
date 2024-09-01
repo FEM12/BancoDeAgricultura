@@ -22,6 +22,24 @@
             color: #fff;
             padding: 15px;
             text-align: center;
+            position: relative;
+        }
+
+        .main-header .logout-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #fcbf16;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .main-header .logout-btn:hover {
+            background-color: #f9a825;
         }
 
         .main-nav {
@@ -128,6 +146,19 @@
             background-color: #fcbf16;
             color: #fff;
         }
+
+        .action-btn {
+            background-color: #fcbf16;
+            border: none;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .action-btn:hover {
+            background-color: #f9a825;
+        }
     </style>
     <script>
         function showSection(sectionId) {
@@ -148,6 +179,7 @@
 <!-- Encabezado -->
 <header class="main-header">
     <h1>Panel del Gerente de Sucursal - Banco de Agricultura Salvadoreño</h1>
+    <button class="logout-btn" onclick="window.location.href='logout.xhtml'">Cerrar Sesión</button>
 </header>
 
 <!-- Menú de Navegación -->
@@ -236,14 +268,14 @@
         </div>
     </div>
 
-    <!-- Sección para Dar Baja a Empleado -->
+    <!-- Sección de Dar Baja a Empleado -->
     <div id="bajaEmpleados" class="section">
         <div class="form-container">
             <h2>Dar Baja a Empleado</h2>
-            <h:form id="formBajaEmpleado">
+            <h:form id="formBajaEmpleados">
                 <h:panelGroup>
                     <div class="form-group">
-                        <h:outputLabel for="nombreEmpleadoBaja" value="Nombres:" />
+                        <h:outputLabel for="nombreEmpleadoBaja" value="Nombre:" />
                         <h:inputText id="nombreEmpleadoBaja" value="#{gerenteBean.nombreEmpleadoBaja}" required="true"/>
                     </div>
 
@@ -287,8 +319,9 @@
                     <div class="form-group">
                         <h:outputLabel for="estadoPrestamo" value="Estado:" />
                         <h:selectOneMenu id="estadoPrestamo" value="#{prestamoBean.estadoPrestamo}" required="true">
-                            <f:selectItem itemLabel="Activo" itemValue="Activo"/>
-                            <f:selectItem itemLabel="Pagado" itemValue="Pagado"/>
+                            <f:selectItem itemLabel="Pendiente" itemValue="Pendiente"/>
+                            <f:selectItem itemLabel="Aprobado" itemValue="Aprobado"/>
+                            <f:selectItem itemLabel="Rechazado" itemValue="Rechazado"/>
                         </h:selectOneMenu>
                     </div>
 
@@ -318,9 +351,15 @@
                     <f:facet name="header">Estado</f:facet>
                     <h:outputText value="#{prestamo.estadoPrestamo}"/>
                 </h:column>
+                <h:column>
+                    <f:facet name="header">Acción</f:facet>
+                    <h:commandButton value="Aprobar" action="#{prestamoBean.aprobarPrestamo(prestamo.id)}" class="action-btn" rendered="#{prestamo.estadoPrestamo == 'Pendiente'}"/>
+                    <h:commandButton value="Rechazar" action="#{prestamoBean.rechazarPrestamo(prestamo.id)}" class="action-btn" rendered="#{prestamo.estadoPrestamo == 'Pendiente'}"/>
+                </h:column>
             </h:dataTable>
         </div>
     </div>
 </div>
 </body>
 </html>
+
