@@ -18,8 +18,8 @@ public class test {
 
         Cliente datos = new Cliente();
 
-        datos.setNombres("Santos Victor");
-        datos.setApellidos("Marroquin");
+        datos.setNombres("Victor Francisco");
+        datos.setApellidos("Marroquin Ramirez");
         datos.setGenero("Masculino");
         datos.setDocumentoDeIdentidad("06631775-8");
         datos.setFechaDeNacimiento(Date.valueOf("2004-01-08"));
