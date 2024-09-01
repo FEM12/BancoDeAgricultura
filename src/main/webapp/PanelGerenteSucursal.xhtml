@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Panel del Gerente - Banco de Agricultura Salvadoreño</title>
+    <!-- Estilos CSS -->
+    <style>
+        /* Reset de estilos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos del encabezado */
+        .main-header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .main-nav button {
+            background-color: #fcbf16;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .main-nav button.active {
+            background-color: #f9a825;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .section {
+            display: none;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            background-color: #fcbf16;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #f9a825;
+        }
+
+        .table-container {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #fcbf16;
+            color: #fff;
+        }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(function(section) {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+
+            document.querySelectorAll('.main-nav button').forEach(function(button) {
+                button.classList.remove('active');
+            });
+            document.getElementById('btn' + sectionId.charAt(0).toUpperCase() + sectionId.slice(1)).classList.add('active');
+        }
+    </script>
+</head>
+
+<body>
+<!-- Encabezado -->
+<header class="main-header">
+    <h1>Panel del Gerente de Sucursal - Banco de Agricultura Salvadoreño</h1>
+</header>
+
+<!-- Menú de Navegación -->
+<nav class="main-nav">
+    <button id="btnEmpleados" onclick="showSection('empleados')">Gestionar Empleados</button>
+    <button id="btnBajaEmpleados" onclick="showSection('bajaEmpleados')">Dar Baja a Empleados</button>
+    <button id="btnPrestamos" onclick="showSection('prestamos')">Gestión de Préstamos</button>
+</nav>
+
+<div class="container">
+    <!-- Sección de Registro de Empleados -->
+    <div id="empleados" class="section">
+        <div class="form-container">
+            <h2>Registrar Nuevo Empleado</h2>
+            <h:form id="formEmpleados">
+                <h:panelGroup>
+                    <div class="form-group">
+                        <h:outputLabel for="nombresEmpleado" value="Nombres:" />
+                        <h:inputText id="nombresEmpleado" value="#{gerenteBean.nombresEmpleado}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="apellidosEmpleado" value="Apellidos:" />
+                        <h:inputText id="apellidosEmpleado" value="#{gerenteBean.apellidosEmpleado}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="generoEmpleado" value="Género:" />
+                        <h:selectOneMenu id="generoEmpleado" value="#{gerenteBean.generoEmpleado}" required="true">
+                            <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
+                            <f:selectItem itemLabel="Femenino" itemValue="Femenino"/>
+                        </h:selectOneMenu>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="documentoIdentidad" value="Documento de Identidad:" />
+                        <h:inputText id="documentoIdentidad" value="#{gerenteBean.documentoIdentidad}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="fechaNacimiento" value="Fecha de Nacimiento:" />
+                        <h:inputText id="fechaNacimiento" value="#{gerenteBean.fechaNacimiento}" required="true"
+                                     validatorMessage="Formato de fecha inválido. Use YYYY-MM-DD">
+                            <f:convertDateTime pattern="yyyy-MM-dd"/>
+                        </h:inputText>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="telefonoMovil" value="Teléfono Móvil:" />
+                        <h:inputText id="telefonoMovil" value="#{gerenteBean.telefonoMovil}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="correoElectronico" value="Correo Electrónico:" />
+                        <h:inputText id="correoElectronico" value="#{gerenteBean.correoElectronico}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="idSucursal" value="ID de Sucursal:" />
+                        <h:inputText id="idSucursal" value="#{gerenteBean.idSucursal}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="idSupervisor" value="ID del Supervisor:" />
+                        <h:inputText id="idSupervisor" value="#{gerenteBean.idSupervisor}"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="cargoEmpleado" value="Cargo:" />
+                        <h:inputText id="cargoEmpleado" value="#{gerenteBean.cargoEmpleado}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="estadoEmpleado" value="Estado:" />
+                        <h:selectOneMenu id="estadoEmpleado" value="#{gerenteBean.estadoEmpleado}" required="true">
+                            <f:selectItem itemLabel="Activo" itemValue="Activo"/>
+                            <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
+                        </h:selectOneMenu>
+                    </div>
+
+                    <div class="form-group">
+                        <h:commandButton value="Registrar Empleado" action="#{gerenteBean.registrarEmpleado}" class="btn"/>
+                    </div>
+                </h:panelGroup>
+            </h:form>
+        </div>
+    </div>
+
+    <!-- Sección para Dar Baja a Empleado -->
+    <div id="bajaEmpleados" class="section">
+        <div class="form-container">
+            <h2>Dar Baja a Empleado</h2>
+            <h:form id="formBajaEmpleado">
+                <h:panelGroup>
+                    <div class="form-group">
+                        <h:outputLabel for="nombreEmpleadoBaja" value="Nombres:" />
+                        <h:inputText id="nombreEmpleadoBaja" value="#{gerenteBean.nombreEmpleadoBaja}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="apellidoEmpleadoBaja" value="Apellidos:" />
+                        <h:inputText id="apellidoEmpleadoBaja" value="#{gerenteBean.apellidoEmpleadoBaja}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:commandButton value="Dar Baja" action="#{gerenteBean.darBajaEmpleado}" class="btn"/>
+                    </div>
+                </h:panelGroup>
+            </h:form>
+        </div>
+    </div>
+
+    <!-- Sección de Gestión de Préstamos -->
+    <div id="prestamos" class="section">
+        <div class="form-container">
+            <h2>Registrar Nuevo Préstamo</h2>
+            <h:form id="formPrestamos">
+                <h:panelGroup>
+                    <div class="form-group">
+                        <h:outputLabel for="clientePrestamo" value="Cliente:" />
+                        <h:inputText id="clientePrestamo" value="#{prestamoBean.clientePrestamo}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="montoPrestamo" value="Monto:" />
+                        <h:inputText id="montoPrestamo" value="#{prestamoBean.montoPrestamo}" required="true"/>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="fechaPrestamo" value="Fecha:" />
+                        <h:inputText id="fechaPrestamo" value="#{prestamoBean.fechaPrestamo}" required="true"
+                                     validatorMessage="Formato de fecha inválido. Use YYYY-MM-DD">
+                            <f:convertDateTime pattern="yyyy-MM-dd"/>
+                        </h:inputText>
+                    </div>
+
+                    <div class="form-group">
+                        <h:outputLabel for="estadoPrestamo" value="Estado:" />
+                        <h:selectOneMenu id="estadoPrestamo" value="#{prestamoBean.estadoPrestamo}" required="true">
+                            <f:selectItem itemLabel="Activo" itemValue="Activo"/>
+                            <f:selectItem itemLabel="Pagado" itemValue="Pagado"/>
+                        </h:selectOneMenu>
+                    </div>
+
+                    <div class="form-group">
+                        <h:commandButton value="Registrar Préstamo" action="#{prestamoBean.registrarPrestamo}" class="btn"/>
+                    </div>
+                </h:panelGroup>
+            </h:form>
+        </div>
+
+        <div class="table-container">
+            <h2>Listado de Préstamos</h2>
+            <h:dataTable value="#{prestamoBean.prestamos}" var="prestamo">
+                <h:column>
+                    <f:facet name="header">Cliente</f:facet>
+                    <h:outputText value="#{prestamo.clientePrestamo}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Monto</f:facet>
+                    <h:outputText value="#{prestamo.montoPrestamo}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Fecha</f:facet>
+                    <h:outputText value="#{prestamo.fechaPrestamo}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Estado</f:facet>
+                    <h:outputText value="#{prestamo.estadoPrestamo}"/>
+                </h:column>
+            </h:dataTable>
+        </div>
+    </div>
+</div>
+</body>
+</html>
