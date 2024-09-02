@@ -4,12 +4,12 @@
     box-sizing: border-box;
 }
 
+/* Estilos del encabezado */
 .main-header {
     background-color: #333;
     color: #fff;
     padding: 15px;
     text-align: center;
-    position: relative;
 }
 
 .main-nav {
@@ -19,7 +19,7 @@
 }
 
 .main-nav button {
-    background-color:#004d40;
+    background-color: #004d40;
     border: none;
     color: #fff;
     padding: 10px 20px;
@@ -39,10 +39,15 @@
 }
 
 .section {
+    display: none;
     padding: 20px;
     background-color: #f8f8f8;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section.active {
+    display: block;
 }
 
 .form-container {
@@ -54,6 +59,8 @@
 
 .form-container h2 {
     margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
 }
 
 .form-group {
@@ -63,13 +70,19 @@
 .form-group label {
     display: block;
     margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
 }
 
-.form-group input, .form-group select {
+.form-group input, .form-group select, .form-group textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+.form-group textarea {
+    resize: vertical;
 }
 
 .btn {
@@ -79,6 +92,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .btn:hover {
@@ -110,20 +124,4 @@ th, td {
 th {
     background-color: #004d40;
     color: #fff;
-}
-
-.logout-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #e53935;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.logout-button:hover {
-    background-color: #c62828;
 }
