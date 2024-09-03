@@ -10,7 +10,7 @@ import java.sql.Date;
 
 public class test {
 
-    private void setData(){
+    private void setDataClient(){
 
         SessionFactory sesFact = HibernateUtil.getSessionFactory();
         Session ses = sesFact.openSession();
@@ -40,7 +40,7 @@ public class test {
     public static void main(String[] args) {
 
         test prueba = new test();
-        prueba.setData();
+        prueba.setDataClient();
 
     }
 

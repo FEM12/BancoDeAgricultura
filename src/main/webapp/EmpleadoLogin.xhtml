@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Created by IntelliJ IDEA.
-  User: Victor Marroquin
+  User: R007
   Date: 29/8/2024
   Time: 01:43 p. m.
 -->
@@ -14,42 +14,42 @@
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
 <h:head>
-    <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+    <h:outputStylesheet name="css/EmpleadoLogin.css" />
     <title>Sistema de Gestión Bancaria</title>
 </h:head>
 
-<h:body class="bg-[#004d40] flex justify-center items-center h-screen m-0">
+<h:body>
 
-    <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+    <div class="container">
 
-        <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">BIENVENIDO/A</h2>
-        <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Sistema de Gestión Bancaria</h2>
+        <h2 class="title">BIENVENIDO/A</h2>
+        <h2 class="title">Sistema de Gestión Bancaria</h2>
 
         <h:form>
 
-            <div class="mb-4">
+            <div>
                 <h:inputText
                         id="username"
                         a:placeholder="Usuario"
                         value="#{bean.username}"
-                        styleClass="block w-full p-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-0"
+                        styleClass="input"
                 />
             </div>
 
-            <div class="mb-4">
+            <div>
                 <h:inputSecret
                         id="password"
                         a:placeholder="Contraseña"
                         value="#{bean.password}"
-                        styleClass="block w-full p-3 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-0"
+                        styleClass="input"
                 />
             </div>
 
-            <div class="mb-4">
+            <div>
                 <h:commandButton
                         value="Ingresar"
                         action="#{bean.login}"
-                        styleClass="block w-full bg-[#00796b] hover:bg-[#004d40] text-white font-bold py-3 px-4 rounded-lg focus:ring-0"
+                        styleClass="button"
                 />
             </div>
 
@@ -60,3 +60,4 @@
 </h:body>
 
 </html>
+

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <h:outputStylesheet name="css/PaginaInicial.css"/>
+    <title>Banco de Agricultura Salvadoreño</title>
+</h:head>
+
+<h:body>
+
+    <h:form>
+        <div class="main-header">
+            <div class="container">
+                <div class="logo">
+                    <h:graphicImage value="#{resource['img/banco.png']}" alt="Banco de Agricultura Salvadoreño"/>
+                </div>
+                <div class="main-nav">
+                    <ul>
+                        <li><h:commandLink value="Inicio" action="index"/></li>
+                        <li><h:commandLink value="Clientes" action="ClienteLogin.xhtml"/></li>
+                        <li><h:commandLink value="Empresas" action="Empresas.xhtml"/></li>
+                        <li><h:commandLink value="Sucursales" action="Sucursales.xhtml"/></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><h:commandLink value="Nosotros" action="Nosotros.xhtml"/></li>
+                        <li><h:commandLink value="Contacto" action="Contacto.xhtml"/></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </h:form>
+
+    <div class="slider">
+        <div class="slider-container">
+            <div class="slide">
+                <h:graphicImage value="resources/img/Bancos.jpg" alt="Promoción 1"/>
+                <div class="slide-text">
+                    <h2>Tu Mejor Experiencia Financiera</h2>
+                    <p>Únete al Banco de Agricultura Salvadoreño y accede a beneficios únicos.</p>
+                    <h:commandLink value="Descubre Más" action="ClienteLogin.xhtml" styleClass="btn"/>
+                </div>
+            </div>
+            <div class="slide">
+                <h:graphicImage value="resources/img/tractor.jpg" alt="Banco de Agricultura Salvadoreño"/>
+                <div class="slide-text">
+                    <h2>Créditos Personales Flexibles</h2>
+                    <p>Aplica hoy y obtén las mejores tasas para tus proyectos.</p>
+                    <h:commandLink value="Solicita Ahora" action="SolicitarCredito.xhtml" styleClass="btn"/>
+                </div>
+            </div>
+        </div>
+
+        <button class="slider-btn prev-btn">❮</button>
+        <button class="slider-btn next-btn">❯</button>
+    </div>
+
+    <h:form>
+        <div class="info-section" id="servicios">
+            <div class="container">
+                <h2>¿Qué quieres hacer hoy?</h2>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h3>Abrir una Cuenta</h3>
+                        <p>Explora nuestras opciones de cuenta y encuentra la ideal para ti.</p>
+                        <h:commandLink value="Ver Opciones" action="AperturadeCuenta.xhtml" styleClass="btn"/>
+                    </div>
+                    <div class="info-card">
+                        <h3>Solicitar un Crédito</h3>
+                        <p>Tenemos créditos que se adaptan a tus necesidades. Conócelos.</p>
+                        <h:commandLink value="Solicitar Crédito" action="SolicitarCredito.xhtml" styleClass="btn"/>
+                    </div>
+                    <div class="info-card">
+                        <h3>Inversiones</h3>
+                        <p>Descubre oportunidades de inversión y maximiza tu dinero.</p>
+                        <h:commandLink value="Ver Más" action="VerInversiones.xhtml" styleClass="btn"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="container">
+                <p>Banco de Agricultura Salvadoreño. Todos los derechos reservados®</p>
+            </div>
+        </div>
+    </h:form>
+
+    <script type="text/javascript">
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.next-btn').addEventListener('click', () => {
+                showSlide(currentIndex + 1);
+            });
+
+            document.querySelector('.prev-btn').addEventListener('click', () => {
+                showSlide(currentIndex - 1);
+            });
+
+            showSlide(currentIndex);
+        });
+
+        function showSlide(index) {
+            if (index >= totalSlides) {
+                currentIndex = 0;
+            }
+            else if (index &lt; 0) {
+                currentIndex = totalSlides - 1;
+            }
+            else {
+                currentIndex = index;
+            }
+            const offset = -currentIndex * 100;
+            document.querySelector('.slider-container').style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+
+</h:body>
+</html>
