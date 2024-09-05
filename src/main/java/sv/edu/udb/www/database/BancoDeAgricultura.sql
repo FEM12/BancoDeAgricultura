@@ -1,4 +1,4 @@
-create database BancoDeAgricultura character set utf8mb4 collate utf8mb4_general_ci;
+create database BancoDeAgricultura character set utf8mb4 collate utf8mb4_bin;
 use BancoDeAgricultura;
 
 create table Cliente (

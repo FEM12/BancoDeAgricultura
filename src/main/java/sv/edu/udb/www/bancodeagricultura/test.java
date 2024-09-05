@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import sv.edu.udb.www.entities.Cliente;
+import sv.edu.udb.www.entities.Credencialcliente;
 import sv.edu.udb.www.utils.HibernateUtil;
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -37,10 +38,28 @@ public class test {
 
     }
 
+    private void setDataCredencialCliente(){
+
+        SessionFactory sesFact = HibernateUtil.getSessionFactory();
+        Session ses = sesFact.openSession();
+        Transaction tra = ses.beginTransaction();
+
+        Credencialcliente datos = new Credencialcliente();
+
+        datos.setUsuario("V1c70Rm@RR0");
+        datos.setContrasena("P4$$w0rd");
+        datos.setIdCliente(1);
+
+        ses.save(datos);
+        tra.commit();
+
+    }
+
     public static void main(String[] args) {
 
         test prueba = new test();
         prueba.setDataClient();
+        prueba.setDataCredencialCliente();
 
     }
 

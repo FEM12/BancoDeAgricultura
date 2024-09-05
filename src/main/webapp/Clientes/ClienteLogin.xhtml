@@ -29,7 +29,7 @@
                 <h:inputText
                         id="username"
                         a:placeholder="Usuario"
-                        value="#{bean.username}"
+                        value="#{clienteLogin.username}"
                         styleClass="input"
                 />
             </div>
@@ -37,14 +37,14 @@
                 <h:inputSecret
                         id="password"
                         a:placeholder="Contraseña"
-                        value="#{bean.password}"
+                        value="#{clienteLogin.password}"
                         styleClass="input"
                 />
             </div>
             <div>
                 <h:commandButton
                         value="Iniciar Sesión"
-                        action="#{bean.login}"
+                        action="#{clienteLogin.login()}"
                         styleClass="button"
                 />
             </div>
