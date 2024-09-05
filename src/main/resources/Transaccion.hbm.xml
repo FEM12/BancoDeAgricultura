@@ -6,10 +6,10 @@
 
     <class name="sv.edu.udb.www.entities.Transaccion" table="transaccion" schema="bancodeagricultura">
         <id name="id">
-            <column name="ID" sql-type="int(11)"/>
+            <column name="ID" sql-type="int"/>
         </id>
         <property name="idCuenta">
-            <column name="ID_Cuenta" sql-type="int(11)"/>
+            <column name="ID_Cuenta" sql-type="int"/>
         </property>
         <property name="tipoDeTransaccion">
             <column name="TipoDeTransaccion" sql-type="varchar(20)" length="20"/>
@@ -21,10 +21,10 @@
             <column name="FechaHora" sql-type="datetime"/>
         </property>
         <property name="idEmpleado">
-            <column name="ID_Empleado" sql-type="int(11)" not-null="true"/>
+            <column name="ID_Empleado" sql-type="int" not-null="true"/>
         </property>
         <property name="comisionEmpleado">
-            <column name="ComisionEmpleado" sql-type="int(11)"/>
+            <column name="ComisionEmpleado" sql-type="int"/>
         </property>
     </class>
 </hibernate-mapping>

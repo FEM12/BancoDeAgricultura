@@ -6,10 +6,10 @@
 
     <class name="sv.edu.udb.www.entities.Prestamo" table="prestamo" schema="bancodeagricultura">
         <id name="id">
-            <column name="ID" sql-type="int(11)"/>
+            <column name="ID" sql-type="int"/>
         </id>
         <property name="idCliente">
-            <column name="ID_Cliente" sql-type="int(11)"/>
+            <column name="ID_Cliente" sql-type="int"/>
         </property>
         <property name="monto">
             <column name="Monto" sql-type="decimal(20,2)" precision="20" scale="2"/>
@@ -18,19 +18,19 @@
             <column name="Estado" sql-type="varchar(10)" length="10"/>
         </property>
         <property name="idEmpleado">
-            <column name="ID_Empleado" sql-type="int(11)"/>
+            <column name="ID_Empleado" sql-type="int"/>
         </property>
         <property name="idGerenteDeSucursal">
-            <column name="ID_GerenteDeSucursal" sql-type="int(11)"/>
+            <column name="ID_GerenteDeSucursal" sql-type="int"/>
         </property>
         <property name="cuotaMensual">
             <column name="CuotaMensual" sql-type="decimal(20,2)" precision="20" scale="2"/>
         </property>
         <property name="plazoAnios">
-            <column name="PlazoAnios" sql-type="int(11)"/>
+            <column name="PlazoAnios" sql-type="int"/>
         </property>
         <property name="interes">
-            <column name="Interes" sql-type="int(11)"/>
+            <column name="Interes" sql-type="int"/>
         </property>
     </class>
 </hibernate-mapping>

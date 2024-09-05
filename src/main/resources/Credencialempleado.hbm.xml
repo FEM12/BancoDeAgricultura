@@ -6,7 +6,7 @@
 
     <class name="sv.edu.udb.www.entities.Credencialempleado" table="credencialempleado" schema="bancodeagricultura">
         <id name="id">
-            <column name="ID" sql-type="int(11)"/>
+            <column name="ID" sql-type="int"/>
         </id>
         <property name="usuario">
             <column name="Usuario" sql-type="varchar(100)" length="100"/>
@@ -15,7 +15,7 @@
             <column name="Contrasena" sql-type="varchar(100)" length="100"/>
         </property>
         <property name="idEmpleado">
-            <column name="ID_Empleado" sql-type="int(11)"/>
+            <column name="ID_Empleado" sql-type="int"/>
         </property>
     </class>
 </hibernate-mapping>

@@ -6,7 +6,7 @@
 
     <class name="sv.edu.udb.www.entities.Cuenta" table="cuenta" schema="bancodeagricultura">
         <id name="id">
-            <column name="ID" sql-type="int(11)"/>
+            <column name="ID" sql-type="int"/>
         </id>
         <property name="numeroDeCuenta">
             <column name="NumeroDeCuenta" sql-type="char(20)" length="20"/>
@@ -21,13 +21,13 @@
             <column name="Saldo" sql-type="decimal(20,2)" precision="20" scale="2"/>
         </property>
         <property name="limiteDeTransaccionesPorMes">
-            <column name="LimiteDeTransaccionesPorMes" sql-type="int(11)"/>
+            <column name="LimiteDeTransaccionesPorMes" sql-type="int"/>
         </property>
         <property name="estado">
             <column name="Estado" sql-type="varchar(8)" length="8"/>
         </property>
         <property name="idCliente">
-            <column name="ID_Cliente" sql-type="int(11)"/>
+            <column name="ID_Cliente" sql-type="int"/>
         </property>
     </class>
 </hibernate-mapping>
