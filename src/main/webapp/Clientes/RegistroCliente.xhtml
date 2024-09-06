@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <h:outputStylesheet name="css/RegistroCliente.css"/>
+    <title>Registrar Cliente</title>
+</h:head>
+
+<h:body>
+
+    <div class="container">
+
+        <h2 class="title">Registrar Cliente</h2>
+
+        <h:form>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="form-column">
+                        <h:inputText
+                                id="nombres"
+                                a:placeholder="Nombres"
+                                value="#{registroBean.nombres}"
+                                styleClass="input"
+                        />
+                    </div>
+                    <div class="form-column">
+                        <h:inputText
+                                id="apellidos"
+                                a:placeholder="Apellidos"
+                                value="#{registroBean.apellidos}"
+                                styleClass="input"
+                        />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <h:selectOneMenu
+                                id="genero"
+                                value="#{registroBean.genero}"
+                                styleClass="input"
+                        >
+                            <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
+                            <f:selectItem itemLabel="Femenino" itemValue="Femenino"/>
+                        </h:selectOneMenu>
+                    </div>
+                    <div class="form-column">
+                        <h:inputText
+                                id="documentoDeIdentidad"
+                                a:placeholder="Documento de Identidad"
+                                value="#{registroBean.documentoDeIdentidad}"
+                                styleClass="input"
+                        />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <h:inputText
+                                id="fechaDeNacimiento"
+                                a:placeholder="Fecha de Nacimiento (dd/mm/aaaa)"
+                                value="#{registroBean.fechaDeNacimiento}"
+                                styleClass="input"
+                                type="date"
+                        />
+                    </div>
+                    <div class="form-column">
+                        <h:selectOneMenu
+                                id="estadoCivil"
+                                value="#{registroBean.estadoCivil}"
+                                styleClass="input"
+                        >
+                            <f:selectItem itemLabel="Soltero/a" itemValue="Soltero/a"/>
+                            <f:selectItem itemLabel="Casado/a" itemValue="Casado/a"/>
+                            <f:selectItem itemLabel="Divorciado/a" itemValue="Divorciado/a"/>
+                            <f:selectItem itemLabel="Viudo/a" itemValue="Viudo/a"/>
+                            <f:selectItem itemLabel="Unido/a" itemValue="Unido/a"/>
+                        </h:selectOneMenu>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <h:inputText
+                                id="ocupacion"
+                                a:placeholder="Ocupación"
+                                value="#{registroBean.ocupacion}"
+                                styleClass="input"
+                        />
+                    </div>
+                    <div class="form-column">
+                        <h:inputText
+                                id="ingresoMensual"
+                                a:placeholder="Ingreso Mensual"
+                                value="#{registroBean.ingresoMensual}"
+                                styleClass="input"
+                                type="number"
+                                step="0.01"
+                        />
+                    </div>
+                </div>
+
+                <h:inputText
+                        id="direccion"
+                        a:placeholder="Dirección"
+                        value="#{registroBean.direccion}"
+                        styleClass="input full-width-input"
+                />
+
+                <div class="form-row">
+                    <div class="form-column">
+                        <h:inputText
+                                id="telefonoMovil"
+                                a:placeholder="Teléfono Móvil"
+                                value="#{registroBean.telefonoMovil}"
+                                styleClass="input"
+                        />
+                    </div>
+                    <div class="form-column">
+                        <h:inputText
+                                id="correoElectronico"
+                                a:placeholder="Correo Electrónico"
+                                value="#{registroBean.correoElectronico}"
+                                styleClass="input"
+                        />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <h:inputText
+                                id="clasificacionDeCliente"
+                                a:placeholder="Clasificación de Cliente"
+                                value="#{registroBean.clasificacionDeCliente}"
+                                styleClass="input"
+                        />
+                    </div>
+                    <div class="form-column">
+                        <h:inputText
+                                id="descripcion"
+                                a:placeholder="Descripción"
+                                value="#{registroBean.descripcion}"
+                                styleClass="input"
+                        />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                        <h:commandButton
+                                value="Regresar al panel de control"
+                                action="#{registroBean.regresar()}"
+                                styleClass="input button-back"
+                        />
+                    </div>
+                    <div class="form-column">
+                        <h:commandButton
+                                value="Registrar cliente"
+                                action="#{registroBean.registrar()}"
+                                styleClass="input button-register"
+                        />
+                    </div>
+                </div>
+            </div>
+        </h:form>
+
+    </div>
+
+</h:body>
+</html>
