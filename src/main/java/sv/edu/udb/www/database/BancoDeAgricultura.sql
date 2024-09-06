@@ -101,6 +101,7 @@ create table Empleado (
     Genero varchar(10) not null,
     DocumentoDeIdentidad char(10) not null,
     FechaDeNacimiento date not null,
+    Direccion text not null,
     TelefonoMovil varchar(20) not null,
     CorreoElectronico text not null,
     ID_Sucursal int not null, -- Llave Foranea
