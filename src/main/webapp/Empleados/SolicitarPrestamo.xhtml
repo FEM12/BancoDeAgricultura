@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: R007
+  Date: 06/09/24
+  Time: 12:56
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+    <h:outputStylesheet name="css/SolicitarPrestamo.css"/>
+    <title>Registrar Préstamo</title>
+</h:head>
+
+<h:body>
+
+    <div class="container">
+
+        <h2 class="title">Solicitar Préstamo</h2>
+
+        <h:form>
+            <div class="form-group">
+
+                <div class="form-row">
+                    <div class="form-column">
+                        <h:inputText
+                                id="dui"
+                                a:placeholder="DUI"
+                                value="#{registroPrestamoBean.dui}"
+                                styleClass="input"
+                        />
+                    </div>
+                    <div class="form-column">
+                        <h:inputText
+                                id="monto"
+                                a:placeholder="Monto"
+                                value="#{registroPrestamoBean.monto}"
+                                styleClass="input"
+                                type="number"
+                                step="0.01"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-column">
+                        <h:commandButton
+                                value="Regresar al panel de control"
+                                action="#{registroPrestamoBean.regresar()}"
+                                styleClass="input button-back"
+                        />
+                    </div>
+                    <div class="form-column">
+                        <h:commandButton
+                                value="Solicitar Préstamo"
+                                action="#{registroPrestamoBean.registrar()}"
+                                styleClass="input button-register"
+                        />
+                    </div>
+                </div>
+            </div>
+        </h:form>
+
+    </div>
+
+</h:body>
+</html>

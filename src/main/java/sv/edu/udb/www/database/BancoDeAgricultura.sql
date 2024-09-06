@@ -68,6 +68,7 @@ create table Transaccion (
     TipoDeTransaccion varchar(20) not null,
     Monto decimal(20, 2) not null,
     FechaHora datetime not null,
+    ID_Cuenta_Destino int, -- Llave Foranea
     ID_Empleado int, -- Llave Foranea
     ComisionEmpleado int default 0 not null,
 
@@ -152,7 +153,8 @@ add constraint FK_IDCliente_ReferenciaPersonal foreign key (ID_Cliente) referenc
 
 alter table Transaccion 
 add constraint FK_IDCuenta_Transaccion foreign key (ID_Cuenta) references Cuenta(ID),
-add constraint FK_IDEmpleado_Transaccion foreign key (ID_Empleado) references Empleado(ID);
+add constraint FK_IDEmpleado_Transaccion foreign key (ID_Empleado) references Empleado(ID),
+add constraint FK_IDCuentaDestino_Transaccion foreign key (ID_Cuenta_Destino) references Cuenta(ID);
 
 alter table CredencialCliente 
 add constraint FK_IDCliente_CredencialCliente foreign key (ID_Cliente) references Cliente(ID);
