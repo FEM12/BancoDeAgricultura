@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <h:outputStylesheet name="css/Nosotros.css"/>
+    <title>Quiénes Somos - Banco de Agricultura Salvadoreño</title>
+</h:head>
+
+<h:body>
+
+    <h:form>
+        <div class="main-header">
+            <div class="container">
+                <div class="logo">
+                    <h:graphicImage value="#{resource['img/banco.png']}" alt="Banco de Agricultura Salvadoreño"/>
+                </div>
+                <div class="main-nav">
+                    <ul>
+                        <li><h:commandLink value="Inicio" action="PaginaInicial"/></li>
+                        <li><h:commandLink value="Clientes" action="ClienteLogin.xhtml"/></li>
+                        <li><h:commandLink value="Empresas" action="Empresas.xhtml"/></li>
+                        <li><h:commandLink value="Sucursales" action="Sucursales.xhtml"/></li>
+                        <li><h:commandLink value="Servicios" action="Servicios"/></li>
+                        <li><h:commandLink value="Nosotros" action="Nosotros.xhtml"/></li>
+                        <li><h:commandLink value="Contactanos" action="Contactanos.xhtml"/></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </h:form>
+
+    <div class="about-section">
+        <div class="container">
+            <h2>Quiénes Somos</h2>
+            <p>
+                En el Banco de Agricultura Salvadoreño, nos enorgullece ser una institución financiera que respalda el desarrollo agrícola y empresarial de El Salvador. Con más de 50 años de experiencia, nuestro compromiso es brindar soluciones financieras innovadoras que promuevan el crecimiento económico y el bienestar de nuestros clientes.
+            </p>
+            <p>
+                Nuestro equipo está compuesto por profesionales dedicados que trabajan con pasión y compromiso para ofrecer servicios de calidad, ajustados a las necesidades de cada uno de nuestros clientes. Creemos en la importancia de un servicio personalizado y en la construcción de relaciones duraderas basadas en la confianza y la transparencia.
+            </p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>Banco de Agricultura Salvadoreño. Todos los derechos reservados®</p>
+        </div>
+    </div>
+
+</h:body>
+</html>

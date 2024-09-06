@@ -1,14 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
 
 <h:head>
-    <h:outputStylesheet name="css/PaginaInicial.css"/>
+        <link href="../resources/css/PaginaInicial.css" rel="stylesheet"/>
     <title>Banco de Agricultura Salvadoreño</title>
 </h:head>
 
@@ -22,13 +16,13 @@
                 </div>
                 <div class="main-nav">
                     <ul>
-                        <li><h:commandLink value="Inicio" action="index"/></li>
+                        <li><h:commandLink value="Inicio" action="PaginaInicial"/></li>
                         <li><h:commandLink value="Clientes" action="ClienteLogin.xhtml"/></li>
                         <li><h:commandLink value="Empresas" action="Empresas.xhtml"/></li>
                         <li><h:commandLink value="Sucursales" action="Sucursales.xhtml"/></li>
-                        <li><a href="#servicios">Servicios</a></li>
+                        <li><h:commandLink value="Servicios" action="Servicios"/></li>
                         <li><h:commandLink value="Nosotros" action="Nosotros.xhtml"/></li>
-                        <li><h:commandLink value="Contacto" action="Contacto.xhtml"/></li>
+                        <li><h:commandLink value="Contactanos" action="Contactanos.xhtml"/></li>
                     </ul>
                 </div>
             </div>

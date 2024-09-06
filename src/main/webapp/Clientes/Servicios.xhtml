@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <h:outputStylesheet name="css/Servicios.css"/>
+    <title>Servicios - Banco de Agricultura Salvadoreño</title>
+</h:head>
+
+<h:body>
+
+    <h:form>
+        <div class="main-header">
+            <div class="container">
+                <div class="logo">
+                    <h:graphicImage value="#{resource['img/banco.png']}" alt="Banco de Agricultura Salvadoreño"/>
+                </div>
+                <div class="main-nav">
+                    <ul>
+                        <li><h:commandLink value="Inicio" action="PaginaInicial"/></li>
+                        <li><h:commandLink value="Clientes" action="ClienteLogin.xhtml"/></li>
+                        <li><h:commandLink value="Empresas" action="Empresas.xhtml"/></li>
+                        <li><h:commandLink value="Sucursales" action="Sucursales.xhtml"/></li>
+                        <li><h:commandLink value="Servicios" action="Servicios"/></li>
+                        <li><h:commandLink value="Nosotros" action="Nosotros.xhtml"/></li>
+                        <li><h:commandLink value="Contactanos" action="Contactanos.xhtml"/></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </h:form>
+
+    <div class="services-section">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-list">
+                <div class="service-item">
+                    <h3>Préstamos Agrícolas</h3>
+                    <p>Ofrecemos soluciones financieras para apoyar el crecimiento del sector agrícola, con condiciones flexibles y adaptadas a tus necesidades.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Cuentas de Ahorro</h3>
+                    <p>Mantén tus ahorros seguros con nuestras cuentas de ahorro que ofrecen tasas competitivas y acceso fácil a tus fondos.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Inversiones</h3>
+                    <p>Aprovecha nuestras opciones de inversión para hacer crecer tu capital de manera segura y confiable.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Créditos Empresariales</h3>
+                    <p>Financiamiento para empresas de todos los tamaños, con condiciones ajustadas a las necesidades del sector empresarial.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>Banco de Agricultura Salvadoreño. Todos los derechos reservados®</p>
+        </div>
+    </div>
+
+</h:body>
+</html>

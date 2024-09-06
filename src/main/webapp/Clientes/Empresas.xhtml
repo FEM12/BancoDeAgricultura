@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <h:outputStylesheet name="css/Empresas.css"/>
+    <title>Empresas - Banco de Agricultura Salvadoreño</title>
+</h:head>
+
+<h:body>
+
+    <h:form>
+        <div class="main-header">
+            <div class="container">
+                <div class="logo">
+                    <h:graphicImage value="#{resource['img/banco.png']}" alt="Banco de Agricultura Salvadoreño"/>
+                </div>
+                <div class="main-nav">
+                    <ul>
+                        <li><h:commandLink value="Inicio" action="PaginaInicial"/></li>
+                        <li><h:commandLink value="Clientes" action="ClienteLogin.xhtml"/></li>
+                        <li><h:commandLink value="Empresas" action="Empresas.xhtml"/></li>
+                        <li><h:commandLink value="Sucursales" action="Sucursales.xhtml"/></li>
+                        <li><h:commandLink value="Servicios" action="Servicios"/></li>
+                        <li><h:commandLink value="Nosotros" action="Nosotros.xhtml"/></li>
+                        <li><h:commandLink value="Contactanos" action="Contactanos.xhtml"/></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </h:form>
+
+    <div class="enterprise-section">
+        <div class="container">
+            <h2>Servicios para Empresas</h2>
+            <p>
+                En el Banco de Agricultura Salvadoreño, ofrecemos una amplia gama de productos y servicios diseñados para apoyar el crecimiento y desarrollo de tu empresa.
+            </p>
+            <div class="enterprise-list">
+                <div class="enterprise-item">
+                    <h3>Financiamiento para Capital de Trabajo</h3>
+                    <p>Proveemos créditos flexibles que permiten a las empresas manejar sus necesidades de capital de trabajo de manera eficiente.</p>
+                </div>
+                <div class="enterprise-item">
+                    <h3>Leasing Financiero</h3>
+                    <p>Nuestras soluciones de leasing están diseñadas para facilitar la adquisición de activos necesarios para el crecimiento empresarial.</p>
+                </div>
+                <div class="enterprise-item">
+                    <h3>Servicios de Banca Electrónica</h3>
+                    <p>Administra tus cuentas y realiza transacciones de manera segura y rápida con nuestros servicios de banca electrónica.</p>
+                </div>
+                <div class="enterprise-item">
+                    <h3>Asesoría Financiera</h3>
+                    <p>Ofrecemos asesoría financiera especializada para ayudarte a tomar decisiones informadas y estratégicas para tu empresa.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>Banco de Agricultura Salvadoreño. Todos los derechos reservados®</p>
+        </div>
+    </div>
+
+</h:body>
+</html>

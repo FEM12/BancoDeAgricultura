@@ -1,9 +1,8 @@
-*{
-
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna */
 }
 
 body {
@@ -16,54 +15,57 @@ body {
 }
 
 .container {
-    background-color: white;
+    background-color: #fff;
     padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 0.75rem; /* Radio de borde más suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más sutil */
     max-width: 28rem;
     width: 100%;
 }
 
 .title {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.75rem; /* Tamaño de fuente más grande */
+    font-weight: 600; /* Fuente más gruesa */
     color: #1f2937;
     margin-bottom: 1.5rem;
     text-align: center;
 }
 
 .input {
-    display: block;
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #d1d5db;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
     box-sizing: border-box;
+    font-size: 1rem; /* Tamaño de fuente ajustado */
 }
 
 .input:focus {
     border-color: #3b82f6;
     outline: none;
-    box-shadow: none;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2); /* Añadido un borde de enfoque sutil */
 }
 
 .button {
     display: block;
     width: 100%;
     background-color: #00796b;
-    color: white;
-    font-weight: bold;
+    color: #fff;
+    font-weight: 600; /* Fuente más gruesa */
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
     text-align: center;
     border: none;
     cursor: pointer;
     box-sizing: border-box;
+    font-size: 1rem; /* Tamaño de fuente ajustado */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave */
 }
 
 .button:hover {
     background-color: #004d40;
+    transform: translateY(-2px); /* Efecto de elevación en hover */
 }
 
 .button:focus {

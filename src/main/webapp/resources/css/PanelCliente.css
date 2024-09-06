@@ -2,30 +2,38 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Estilos del encabezado */
 .main-header {
-    background-color: #333;
+    background-color: rgba(0, 77, 64, 0.9);
     color: #fff;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
     position: relative;
+    border-bottom: 4px solid #004d40;
+}
+
+.main-header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 /* Estilos del botón de cerrar sesión */
 .logout-btn {
-    background-color: #004d40;
+    background-color: #00796b;
     border: none;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 20px;
+    right: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .logout-btn:hover {
@@ -37,51 +45,61 @@
     display: flex;
     justify-content: center;
     margin: 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(0, 77, 64, 0.7);
 }
 
 .main-nav button {
-    background-color: #004d40;
+    background-color: #00796b;
     border: none;
     color: #fff;
     padding: 10px 20px;
-    margin: 0 5px;
+    margin: 0 10px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-.main-nav button.active {
+.main-nav button.active,
+.main-nav button:hover {
     background-color: #004d40;
 }
 
+/* Estilos generales del contenedor */
 .container {
     width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
     position: relative;
 }
 
+/* Estilos de las secciones */
 .section {
     display: none;
-    padding: 20px;
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
 }
 
 .section.active {
     display: block;
 }
 
-.form-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.section h2 {
+    font-size: 28px;
+    color: #004d40;
+    margin-bottom: 20px;
 }
 
-.form-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
+/* Estilos del contenedor del formulario */
+.form-container {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -92,6 +110,7 @@
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    color: #333;
 }
 
 .form-group input, .form-group select {
@@ -99,10 +118,16 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: #004d40;
 }
 
 .btn {
-    background-color: #004d40;
+    background-color: #00796b;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -110,23 +135,26 @@
     cursor: pointer;
     font-size: 16px;
     margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
     background-color: #004d40;
 }
 
+/* Estilos del contenedor de la tabla */
 .table-container {
     margin-top: 20px;
-    background-color: #fff;
+    background-color: #f5f5f5;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 16px;
 }
 
 table, th, td {
@@ -134,11 +162,24 @@ table, th, td {
 }
 
 th, td {
-    padding: 10px;
+    padding: 12px;
     text-align: left;
 }
 
 th {
-    background-color: #004d40;
+    background-color: #00796b;
     color: #fff;
+    font-weight: bold;
+}
+
+td {
+    color: #333;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #e0f2f1;
 }

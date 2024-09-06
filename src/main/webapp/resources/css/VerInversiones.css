@@ -5,25 +5,29 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    background-color: #f8f8f8; /* Fondo de cuerpo más claro */
 }
 
 .main-header {
     background-color: #004d40;
     color: #fff;
-    padding: 15px 0;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para el encabezado */
 }
 
 .main-header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 0 20px;
 }
 
 .logo img {
     max-height: 50px;
-    margin-left: 15px;
 }
 
 .main-nav ul {
@@ -38,42 +42,48 @@ body {
 .main-nav a {
     color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    font-size: 16px; /* Tamaño de fuente ajustado */
+    transition: color 0.3s ease; /* Transición suave */
 }
 
 .main-nav a:hover {
+    color: #cddc39; /* Color de texto en hover */
     text-decoration: underline;
 }
 
 .info-section {
-    padding: 50px 0;
-    background-color: #f1f1f1;
+    padding: 60px 20px;
+    background-color: #ffffff; /* Fondo blanco para mejor contraste */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para la sección */
 }
 
 .info-section h2 {
     text-align: center;
-    margin-bottom: 40px;
-    color: #333;
+    margin-bottom: 20px;
+    font-size: 2rem; /* Tamaño de fuente ajustado */
+    color: #1f2937; /* Color del título */
 }
 
 .info-section p {
     text-align: center;
-    font-size: 18px;
-    color: #666;
+    font-size: 1.125rem; /* Tamaño de fuente ajustado */
+    color: #555; /* Color de texto más suave */
+    max-width: 800px;
+    margin: 0 auto; /* Centrar el texto */
 }
 
 .footer {
     width: 100%;
-    position: absolute;
-
-    bottom: 0;
-
     background-color: #004d40;
     color: #fff;
     text-align: center;
-    padding: 2px 0;
+    padding: 15px 0; /* Mayor espacio para mejor legibilidad */
+    position: relative; /* Cambiado a relativo para evitar problemas de superposición */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para el pie de página */
 }
 
 .footer p {
     margin: 0;
+    font-size: 14px; /* Tamaño de fuente más pequeño para el pie de página */
 }
