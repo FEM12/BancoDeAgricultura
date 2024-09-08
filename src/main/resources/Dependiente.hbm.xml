@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="sv.edu.udb.www.entities.Cliente" table="cliente" schema="bancodeagricultura">
+    <class name="sv.edu.udb.www.entities.Dependiente" table="dependiente" schema="bancodeagricultura">
         <id name="id">
             <column name="ID" sql-type="int"/>
         </id>
@@ -26,6 +26,9 @@
         <property name="estadoCivil">
             <column name="EstadoCivil" sql-type="varchar(15)" length="15"/>
         </property>
+        <property name="negocio">
+            <column name="Negocio" sql-type="text"/>
+        </property>
         <property name="ocupacion">
             <column name="Ocupacion" sql-type="text"/>
         </property>
@@ -40,9 +43,6 @@
         </property>
         <property name="direccion">
             <column name="Direccion" sql-type="text"/>
-        </property>
-        <property name="clasificacionDeCliente">
-            <column name="ClasificacionDeCliente" sql-type="text"/>
         </property>
     </class>
 </hibernate-mapping>

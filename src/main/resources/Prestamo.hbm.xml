@@ -14,14 +14,11 @@
         <property name="monto">
             <column name="Monto" sql-type="decimal(20,2)" precision="20" scale="2"/>
         </property>
+        <property name="fechaHoraSolicitud">
+            <column name="FechaHoraSolicitud" sql-type="datetime"/>
+        </property>
         <property name="estado">
             <column name="Estado" sql-type="varchar(10)" length="10"/>
-        </property>
-        <property name="idEmpleado">
-            <column name="ID_Empleado" sql-type="int"/>
-        </property>
-        <property name="idGerenteDeSucursal">
-            <column name="ID_GerenteDeSucursal" sql-type="int"/>
         </property>
         <property name="cuotaMensual">
             <column name="CuotaMensual" sql-type="decimal(20,2)" precision="20" scale="2"/>
@@ -31,6 +28,15 @@
         </property>
         <property name="interes">
             <column name="Interes" sql-type="int"/>
+        </property>
+        <property name="fechaHoraRespuesta">
+            <column name="FechaHoraRespuesta" sql-type="datetime"/>
+        </property>
+        <property name="motivoDeRechazo">
+            <column name="MotivoDeRechazo" sql-type="text" not-null="true"/>
+        </property>
+        <property name="idEmpleado">
+            <column name="ID_Empleado" sql-type="int"/>
         </property>
     </class>
 </hibernate-mapping>

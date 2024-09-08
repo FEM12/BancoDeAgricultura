@@ -2,7 +2,7 @@ package sv.edu.udb.www.entities;
 
 import java.sql.Date;
 
-public class Empleado {
+public class Gerente {
     private int id;
     private String nombres;
     private String apellidos;
@@ -14,7 +14,6 @@ public class Empleado {
     private String direccion;
     private String cargo;
     private String estado;
-    private int idGerente;
 
     public int getId() {
         return id;
@@ -104,36 +103,27 @@ public class Empleado {
         this.estado = estado;
     }
 
-    public int getIdGerente() {
-        return idGerente;
-    }
-
-    public void setIdGerente(int idGerente) {
-        this.idGerente = idGerente;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Empleado empleado = (Empleado) o;
+        Gerente gerente = (Gerente) o;
 
-        if (id != empleado.id) return false;
-        if (idGerente != empleado.idGerente) return false;
-        if (nombres != null ? !nombres.equals(empleado.nombres) : empleado.nombres != null) return false;
-        if (apellidos != null ? !apellidos.equals(empleado.apellidos) : empleado.apellidos != null) return false;
-        if (genero != null ? !genero.equals(empleado.genero) : empleado.genero != null) return false;
-        if (dui != null ? !dui.equals(empleado.dui) : empleado.dui != null) return false;
-        if (fechaDeNacimiento != null ? !fechaDeNacimiento.equals(empleado.fechaDeNacimiento) : empleado.fechaDeNacimiento != null)
+        if (id != gerente.id) return false;
+        if (nombres != null ? !nombres.equals(gerente.nombres) : gerente.nombres != null) return false;
+        if (apellidos != null ? !apellidos.equals(gerente.apellidos) : gerente.apellidos != null) return false;
+        if (genero != null ? !genero.equals(gerente.genero) : gerente.genero != null) return false;
+        if (dui != null ? !dui.equals(gerente.dui) : gerente.dui != null) return false;
+        if (fechaDeNacimiento != null ? !fechaDeNacimiento.equals(gerente.fechaDeNacimiento) : gerente.fechaDeNacimiento != null)
             return false;
-        if (telefonoMovil != null ? !telefonoMovil.equals(empleado.telefonoMovil) : empleado.telefonoMovil != null)
+        if (telefonoMovil != null ? !telefonoMovil.equals(gerente.telefonoMovil) : gerente.telefonoMovil != null)
             return false;
-        if (correoElectronico != null ? !correoElectronico.equals(empleado.correoElectronico) : empleado.correoElectronico != null)
+        if (correoElectronico != null ? !correoElectronico.equals(gerente.correoElectronico) : gerente.correoElectronico != null)
             return false;
-        if (direccion != null ? !direccion.equals(empleado.direccion) : empleado.direccion != null) return false;
-        if (cargo != null ? !cargo.equals(empleado.cargo) : empleado.cargo != null) return false;
-        if (estado != null ? !estado.equals(empleado.estado) : empleado.estado != null) return false;
+        if (direccion != null ? !direccion.equals(gerente.direccion) : gerente.direccion != null) return false;
+        if (cargo != null ? !cargo.equals(gerente.cargo) : gerente.cargo != null) return false;
+        if (estado != null ? !estado.equals(gerente.estado) : gerente.estado != null) return false;
 
         return true;
     }
@@ -151,7 +141,6 @@ public class Empleado {
         result = 31 * result + (direccion != null ? direccion.hashCode() : 0);
         result = 31 * result + (cargo != null ? cargo.hashCode() : 0);
         result = 31 * result + (estado != null ? estado.hashCode() : 0);
-        result = 31 * result + idGerente;
         return result;
     }
 }

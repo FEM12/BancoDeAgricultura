@@ -17,11 +17,8 @@
         <property name="correoElectronico">
             <column name="CorreoElectronico" sql-type="text" not-null="true"/>
         </property>
-        <property name="idGerenteDeSucursal">
-            <column name="ID_GerenteDeSucursal" sql-type="int"/>
-        </property>
-        <property name="idGerenteGeneral">
-            <column name="ID_GerenteGeneral" sql-type="int"/>
+        <property name="idGerente">
+            <column name="ID_Gerente" sql-type="int"/>
         </property>
     </class>
 </hibernate-mapping>

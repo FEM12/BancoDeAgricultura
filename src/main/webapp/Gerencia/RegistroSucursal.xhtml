@@ -29,19 +29,31 @@
             <div class="form-group">
 
 
-                <h:inputText
-                        id="direccion"
-                        a:placeholder="Dirección"
-                        value="#{registroSucursalBean.direccion}"
-                        styleClass="input full-width-input"
-                />
-
                 <div class="form-row">
+                    <div class="form-column">
+                        <h:inputText
+                                id="direccion"
+                                a:placeholder="Dirección"
+                                value="#{registroSucursalBean.direccion}"
+                                styleClass="input"
+                        />
+                    </div>
                     <div class="form-column">
                         <h:inputText
                                 id="telefonoFijo"
                                 a:placeholder="Teléfono Fijo"
                                 value="#{registroSucursalBean.telefonoFijo}"
+                                styleClass="input"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-column">
+                        <h:inputText
+                                id="dui"
+                                a:placeholder="DUI del gerente"
+                                value="#{registroPrestamoBean.dui}"
                                 styleClass="input"
                         />
                     </div>

@@ -14,11 +14,13 @@
         <mapping resource="Credencialempleado.hbm.xml"/>
         <mapping resource="Cuenta.hbm.xml"/>
         <mapping resource="Empleado.hbm.xml"/>
-        <mapping resource="Empresa.hbm.xml"/>
         <mapping resource="Prestamo.hbm.xml"/>
         <mapping resource="Referenciapersonal.hbm.xml"/>
         <mapping resource="Sucursal.hbm.xml"/>
         <mapping resource="Transaccion.hbm.xml"/>
+        <mapping resource="Credencialgerente.hbm.xml"/>
+        <mapping resource="Dependiente.hbm.xml"/>
+        <mapping resource="Gerente.hbm.xml"/>
         <!-- <property name="connection.username"/> -->
         <!-- <property name="connection.password"/> -->
 

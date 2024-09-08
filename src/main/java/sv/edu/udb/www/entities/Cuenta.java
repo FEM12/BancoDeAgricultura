@@ -9,9 +9,9 @@ public class Cuenta {
     private String tipoDeCuenta;
     private Date fechaDeApertura;
     private BigDecimal saldo;
-    private int limiteDeTransaccionesPorMes;
     private String estado;
-    private int idCliente;
+    private Integer idCliente;
+    private Integer idDependiente;
 
     public int getId() {
         return id;
@@ -53,14 +53,6 @@ public class Cuenta {
         this.saldo = saldo;
     }
 
-    public int getLimiteDeTransaccionesPorMes() {
-        return limiteDeTransaccionesPorMes;
-    }
-
-    public void setLimiteDeTransaccionesPorMes(int limiteDeTransaccionesPorMes) {
-        this.limiteDeTransaccionesPorMes = limiteDeTransaccionesPorMes;
-    }
-
     public String getEstado() {
         return estado;
     }
@@ -69,12 +61,20 @@ public class Cuenta {
         this.estado = estado;
     }
 
-    public int getIdCliente() {
+    public Integer getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(int idCliente) {
+    public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
+    }
+
+    public Integer getIdDependiente() {
+        return idDependiente;
+    }
+
+    public void setIdDependiente(Integer idDependiente) {
+        this.idDependiente = idDependiente;
     }
 
     @Override
@@ -85,8 +85,6 @@ public class Cuenta {
         Cuenta cuenta = (Cuenta) o;
 
         if (id != cuenta.id) return false;
-        if (limiteDeTransaccionesPorMes != cuenta.limiteDeTransaccionesPorMes) return false;
-        if (idCliente != cuenta.idCliente) return false;
         if (numeroDeCuenta != null ? !numeroDeCuenta.equals(cuenta.numeroDeCuenta) : cuenta.numeroDeCuenta != null)
             return false;
         if (tipoDeCuenta != null ? !tipoDeCuenta.equals(cuenta.tipoDeCuenta) : cuenta.tipoDeCuenta != null)
@@ -95,6 +93,9 @@ public class Cuenta {
             return false;
         if (saldo != null ? !saldo.equals(cuenta.saldo) : cuenta.saldo != null) return false;
         if (estado != null ? !estado.equals(cuenta.estado) : cuenta.estado != null) return false;
+        if (idCliente != null ? !idCliente.equals(cuenta.idCliente) : cuenta.idCliente != null) return false;
+        if (idDependiente != null ? !idDependiente.equals(cuenta.idDependiente) : cuenta.idDependiente != null)
+            return false;
 
         return true;
     }
@@ -106,9 +107,9 @@ public class Cuenta {
         result = 31 * result + (tipoDeCuenta != null ? tipoDeCuenta.hashCode() : 0);
         result = 31 * result + (fechaDeApertura != null ? fechaDeApertura.hashCode() : 0);
         result = 31 * result + (saldo != null ? saldo.hashCode() : 0);
-        result = 31 * result + limiteDeTransaccionesPorMes;
         result = 31 * result + (estado != null ? estado.hashCode() : 0);
-        result = 31 * result + idCliente;
+        result = 31 * result + (idCliente != null ? idCliente.hashCode() : 0);
+        result = 31 * result + (idDependiente != null ? idDependiente.hashCode() : 0);
         return result;
     }
 }

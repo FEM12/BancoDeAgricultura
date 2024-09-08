@@ -12,7 +12,7 @@
             <column name="Usuario" sql-type="varchar(100)" length="100"/>
         </property>
         <property name="contrasena">
-            <column name="Contrasena" sql-type="varchar(100)" length="100"/>
+            <column name="Contrasena" sql-type="varchar(260)" length="260"/>
         </property>
         <property name="idCliente">
             <column name="ID_Cliente" sql-type="int"/>
