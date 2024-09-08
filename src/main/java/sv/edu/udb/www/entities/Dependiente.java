@@ -3,7 +3,7 @@ package sv.edu.udb.www.entities;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-public class Cliente {
+public class Dependiente {
     private int id;
     private String nombres;
     private String apellidos;
@@ -11,12 +11,12 @@ public class Cliente {
     private String dui;
     private Date fechaDeNacimiento;
     private String estadoCivil;
+    private String negocio;
     private String ocupacion;
     private BigDecimal ingresoMensual;
     private String telefonoMovil;
     private String correoElectronico;
     private String direccion;
-    private String clasificacionDeCliente;
 
     public int getId() {
         return id;
@@ -74,6 +74,14 @@ public class Cliente {
         this.estadoCivil = estadoCivil;
     }
 
+    public String getNegocio() {
+        return negocio;
+    }
+
+    public void setNegocio(String negocio) {
+        this.negocio = negocio;
+    }
+
     public String getOcupacion() {
         return ocupacion;
     }
@@ -114,39 +122,30 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public String getClasificacionDeCliente() {
-        return clasificacionDeCliente;
-    }
-
-    public void setClasificacionDeCliente(String clasificacionDeCliente) {
-        this.clasificacionDeCliente = clasificacionDeCliente;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Cliente cliente = (Cliente) o;
+        Dependiente that = (Dependiente) o;
 
-        if (id != cliente.id) return false;
-        if (nombres != null ? !nombres.equals(cliente.nombres) : cliente.nombres != null) return false;
-        if (apellidos != null ? !apellidos.equals(cliente.apellidos) : cliente.apellidos != null) return false;
-        if (genero != null ? !genero.equals(cliente.genero) : cliente.genero != null) return false;
-        if (dui != null ? !dui.equals(cliente.dui) : cliente.dui != null) return false;
-        if (fechaDeNacimiento != null ? !fechaDeNacimiento.equals(cliente.fechaDeNacimiento) : cliente.fechaDeNacimiento != null)
+        if (id != that.id) return false;
+        if (nombres != null ? !nombres.equals(that.nombres) : that.nombres != null) return false;
+        if (apellidos != null ? !apellidos.equals(that.apellidos) : that.apellidos != null) return false;
+        if (genero != null ? !genero.equals(that.genero) : that.genero != null) return false;
+        if (dui != null ? !dui.equals(that.dui) : that.dui != null) return false;
+        if (fechaDeNacimiento != null ? !fechaDeNacimiento.equals(that.fechaDeNacimiento) : that.fechaDeNacimiento != null)
             return false;
-        if (estadoCivil != null ? !estadoCivil.equals(cliente.estadoCivil) : cliente.estadoCivil != null) return false;
-        if (ocupacion != null ? !ocupacion.equals(cliente.ocupacion) : cliente.ocupacion != null) return false;
-        if (ingresoMensual != null ? !ingresoMensual.equals(cliente.ingresoMensual) : cliente.ingresoMensual != null)
+        if (estadoCivil != null ? !estadoCivil.equals(that.estadoCivil) : that.estadoCivil != null) return false;
+        if (negocio != null ? !negocio.equals(that.negocio) : that.negocio != null) return false;
+        if (ocupacion != null ? !ocupacion.equals(that.ocupacion) : that.ocupacion != null) return false;
+        if (ingresoMensual != null ? !ingresoMensual.equals(that.ingresoMensual) : that.ingresoMensual != null)
             return false;
-        if (telefonoMovil != null ? !telefonoMovil.equals(cliente.telefonoMovil) : cliente.telefonoMovil != null)
+        if (telefonoMovil != null ? !telefonoMovil.equals(that.telefonoMovil) : that.telefonoMovil != null)
             return false;
-        if (correoElectronico != null ? !correoElectronico.equals(cliente.correoElectronico) : cliente.correoElectronico != null)
+        if (correoElectronico != null ? !correoElectronico.equals(that.correoElectronico) : that.correoElectronico != null)
             return false;
-        if (direccion != null ? !direccion.equals(cliente.direccion) : cliente.direccion != null) return false;
-        if (clasificacionDeCliente != null ? !clasificacionDeCliente.equals(cliente.clasificacionDeCliente) : cliente.clasificacionDeCliente != null)
-            return false;
+        if (direccion != null ? !direccion.equals(that.direccion) : that.direccion != null) return false;
 
         return true;
     }
@@ -160,12 +159,12 @@ public class Cliente {
         result = 31 * result + (dui != null ? dui.hashCode() : 0);
         result = 31 * result + (fechaDeNacimiento != null ? fechaDeNacimiento.hashCode() : 0);
         result = 31 * result + (estadoCivil != null ? estadoCivil.hashCode() : 0);
+        result = 31 * result + (negocio != null ? negocio.hashCode() : 0);
         result = 31 * result + (ocupacion != null ? ocupacion.hashCode() : 0);
         result = 31 * result + (ingresoMensual != null ? ingresoMensual.hashCode() : 0);
         result = 31 * result + (telefonoMovil != null ? telefonoMovil.hashCode() : 0);
         result = 31 * result + (correoElectronico != null ? correoElectronico.hashCode() : 0);
         result = 31 * result + (direccion != null ? direccion.hashCode() : 0);
-        result = 31 * result + (clasificacionDeCliente != null ? clasificacionDeCliente.hashCode() : 0);
         return result;
     }
 }

@@ -21,7 +21,10 @@
             <column name="Direccion" sql-type="text"/>
         </property>
         <property name="idCliente">
-            <column name="ID_Cliente" sql-type="int"/>
+            <column name="ID_Cliente" sql-type="int" not-null="true"/>
+        </property>
+        <property name="idDependiente">
+            <column name="ID_Dependiente" sql-type="int" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

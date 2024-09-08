@@ -9,8 +9,9 @@ public class Transaccion {
     private String tipoDeTransaccion;
     private BigDecimal monto;
     private Timestamp fechaHora;
+    private String cuentaDeDestino;
     private Integer idEmpleado;
-    private int comisionEmpleado;
+    private Integer comisionEmpleado;
 
     public int getId() {
         return id;
@@ -52,6 +53,14 @@ public class Transaccion {
         this.fechaHora = fechaHora;
     }
 
+    public String getCuentaDeDestino() {
+        return cuentaDeDestino;
+    }
+
+    public void setCuentaDeDestino(String cuentaDeDestino) {
+        this.cuentaDeDestino = cuentaDeDestino;
+    }
+
     public Integer getIdEmpleado() {
         return idEmpleado;
     }
@@ -60,11 +69,11 @@ public class Transaccion {
         this.idEmpleado = idEmpleado;
     }
 
-    public int getComisionEmpleado() {
+    public Integer getComisionEmpleado() {
         return comisionEmpleado;
     }
 
-    public void setComisionEmpleado(int comisionEmpleado) {
+    public void setComisionEmpleado(Integer comisionEmpleado) {
         this.comisionEmpleado = comisionEmpleado;
     }
 
@@ -77,12 +86,15 @@ public class Transaccion {
 
         if (id != that.id) return false;
         if (idCuenta != that.idCuenta) return false;
-        if (comisionEmpleado != that.comisionEmpleado) return false;
         if (tipoDeTransaccion != null ? !tipoDeTransaccion.equals(that.tipoDeTransaccion) : that.tipoDeTransaccion != null)
             return false;
         if (monto != null ? !monto.equals(that.monto) : that.monto != null) return false;
         if (fechaHora != null ? !fechaHora.equals(that.fechaHora) : that.fechaHora != null) return false;
+        if (cuentaDeDestino != null ? !cuentaDeDestino.equals(that.cuentaDeDestino) : that.cuentaDeDestino != null)
+            return false;
         if (idEmpleado != null ? !idEmpleado.equals(that.idEmpleado) : that.idEmpleado != null) return false;
+        if (comisionEmpleado != null ? !comisionEmpleado.equals(that.comisionEmpleado) : that.comisionEmpleado != null)
+            return false;
 
         return true;
     }
@@ -94,8 +106,9 @@ public class Transaccion {
         result = 31 * result + (tipoDeTransaccion != null ? tipoDeTransaccion.hashCode() : 0);
         result = 31 * result + (monto != null ? monto.hashCode() : 0);
         result = 31 * result + (fechaHora != null ? fechaHora.hashCode() : 0);
+        result = 31 * result + (cuentaDeDestino != null ? cuentaDeDestino.hashCode() : 0);
         result = 31 * result + (idEmpleado != null ? idEmpleado.hashCode() : 0);
-        result = 31 * result + comisionEmpleado;
+        result = 31 * result + (comisionEmpleado != null ? comisionEmpleado.hashCode() : 0);
         return result;
     }
 }

@@ -6,7 +6,8 @@ public class Referenciapersonal {
     private String relacion;
     private String telefonoMovil;
     private String direccion;
-    private int idCliente;
+    private Integer idCliente;
+    private Integer idDependiente;
 
     public int getId() {
         return id;
@@ -48,12 +49,20 @@ public class Referenciapersonal {
         this.direccion = direccion;
     }
 
-    public int getIdCliente() {
+    public Integer getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(int idCliente) {
+    public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
+    }
+
+    public Integer getIdDependiente() {
+        return idDependiente;
+    }
+
+    public void setIdDependiente(Integer idDependiente) {
+        this.idDependiente = idDependiente;
     }
 
     @Override
@@ -64,12 +73,14 @@ public class Referenciapersonal {
         Referenciapersonal that = (Referenciapersonal) o;
 
         if (id != that.id) return false;
-        if (idCliente != that.idCliente) return false;
         if (nombre != null ? !nombre.equals(that.nombre) : that.nombre != null) return false;
         if (relacion != null ? !relacion.equals(that.relacion) : that.relacion != null) return false;
         if (telefonoMovil != null ? !telefonoMovil.equals(that.telefonoMovil) : that.telefonoMovil != null)
             return false;
         if (direccion != null ? !direccion.equals(that.direccion) : that.direccion != null) return false;
+        if (idCliente != null ? !idCliente.equals(that.idCliente) : that.idCliente != null) return false;
+        if (idDependiente != null ? !idDependiente.equals(that.idDependiente) : that.idDependiente != null)
+            return false;
 
         return true;
     }
@@ -81,7 +92,8 @@ public class Referenciapersonal {
         result = 31 * result + (relacion != null ? relacion.hashCode() : 0);
         result = 31 * result + (telefonoMovil != null ? telefonoMovil.hashCode() : 0);
         result = 31 * result + (direccion != null ? direccion.hashCode() : 0);
-        result = 31 * result + idCliente;
+        result = 31 * result + (idCliente != null ? idCliente.hashCode() : 0);
+        result = 31 * result + (idDependiente != null ? idDependiente.hashCode() : 0);
         return result;
     }
 }

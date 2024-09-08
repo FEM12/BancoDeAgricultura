@@ -5,8 +5,7 @@ public class Sucursal {
     private String direccion;
     private String telefonoFijo;
     private String correoElectronico;
-    private int idGerenteDeSucursal;
-    private int idGerenteGeneral;
+    private int idGerente;
 
     public int getId() {
         return id;
@@ -40,20 +39,12 @@ public class Sucursal {
         this.correoElectronico = correoElectronico;
     }
 
-    public int getIdGerenteDeSucursal() {
-        return idGerenteDeSucursal;
+    public int getIdGerente() {
+        return idGerente;
     }
 
-    public void setIdGerenteDeSucursal(int idGerenteDeSucursal) {
-        this.idGerenteDeSucursal = idGerenteDeSucursal;
-    }
-
-    public int getIdGerenteGeneral() {
-        return idGerenteGeneral;
-    }
-
-    public void setIdGerenteGeneral(int idGerenteGeneral) {
-        this.idGerenteGeneral = idGerenteGeneral;
+    public void setIdGerente(int idGerente) {
+        this.idGerente = idGerente;
     }
 
     @Override
@@ -64,8 +55,7 @@ public class Sucursal {
         Sucursal sucursal = (Sucursal) o;
 
         if (id != sucursal.id) return false;
-        if (idGerenteDeSucursal != sucursal.idGerenteDeSucursal) return false;
-        if (idGerenteGeneral != sucursal.idGerenteGeneral) return false;
+        if (idGerente != sucursal.idGerente) return false;
         if (direccion != null ? !direccion.equals(sucursal.direccion) : sucursal.direccion != null) return false;
         if (telefonoFijo != null ? !telefonoFijo.equals(sucursal.telefonoFijo) : sucursal.telefonoFijo != null)
             return false;
@@ -81,8 +71,7 @@ public class Sucursal {
         result = 31 * result + (direccion != null ? direccion.hashCode() : 0);
         result = 31 * result + (telefonoFijo != null ? telefonoFijo.hashCode() : 0);
         result = 31 * result + (correoElectronico != null ? correoElectronico.hashCode() : 0);
-        result = 31 * result + idGerenteDeSucursal;
-        result = 31 * result + idGerenteGeneral;
+        result = 31 * result + idGerente;
         return result;
     }
 }
