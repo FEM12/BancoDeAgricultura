@@ -24,22 +24,22 @@
             <column name="FechaDeNacimiento" sql-type="date"/>
         </property>
         <property name="estadoCivil">
-            <column name="EstadoCivil" sql-type="varchar(15)" length="15"/>
+            <column name="EstadoCivil" sql-type="varchar(12)" length="12"/>
         </property>
         <property name="negocio">
             <column name="Negocio" sql-type="text"/>
         </property>
         <property name="ocupacion">
-            <column name="Ocupacion" sql-type="text"/>
+            <column name="Ocupacion" sql-type="varchar(60)" length="60"/>
         </property>
         <property name="ingresoMensual">
-            <column name="IngresoMensual" sql-type="decimal(20,2)" precision="20" scale="2"/>
+            <column name="IngresoMensual" sql-type="decimal(6,2)" precision="6" scale="2"/>
         </property>
         <property name="telefonoMovil">
-            <column name="TelefonoMovil" sql-type="varchar(20)" length="20"/>
+            <column name="TelefonoMovil" sql-type="char(9)" length="9"/>
         </property>
         <property name="correoElectronico">
-            <column name="CorreoElectronico" sql-type="text"/>
+            <column name="CorreoElectronico" sql-type="varchar(100)" length="100"/>
         </property>
         <property name="direccion">
             <column name="Direccion" sql-type="text"/>

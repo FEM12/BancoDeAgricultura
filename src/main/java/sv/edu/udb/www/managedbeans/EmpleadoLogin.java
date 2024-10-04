@@ -1,5 +1,9 @@
 package sv.edu.udb.www.managedbeans;
 
+import sv.edu.udb.www.entities.Credencialcliente;
+import sv.edu.udb.www.utils.HibernateUtil;
+import static sv.edu.udb.www.utils.EncriptarContrasenaUtil.encriptarContrasena;
+
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.bean.ManagedBean;
 import jakarta.faces.bean.ViewScoped;
@@ -8,8 +12,6 @@ import java.io.Serializable;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import sv.edu.udb.www.entities.Credencialcliente;
-import sv.edu.udb.www.utils.HibernateUtil;
 
 @ManagedBean
 @ViewScoped
@@ -47,7 +49,7 @@ public class EmpleadoLogin implements Serializable{
 
             Query<Credencialcliente> query = session.createQuery("FROM Credencialempleado WHERE usuario = :username AND contrasena = :password", Credencialcliente.class);
             query.setParameter("username", username);
-            query.setParameter("password", password);
+            query.setParameter("password", encriptarContrasena(password));
             Credencialcliente credencial = query.uniqueResult();
 
             tx.commit();

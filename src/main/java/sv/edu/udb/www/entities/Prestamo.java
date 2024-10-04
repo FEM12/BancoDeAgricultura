@@ -10,11 +10,11 @@ public class Prestamo {
     private Timestamp fechaHoraSolicitud;
     private String estado;
     private BigDecimal cuotaMensual;
-    private int plazoAnios;
-    private int interes;
+    private Integer plazoAnios;
+    private Integer interes;
     private Timestamp fechaHoraRespuesta;
     private String motivoDeRechazo;
-    private int idEmpleado;
+    private Integer idEmpleado;
 
     public int getId() {
         return id;
@@ -64,19 +64,19 @@ public class Prestamo {
         this.cuotaMensual = cuotaMensual;
     }
 
-    public int getPlazoAnios() {
+    public Integer getPlazoAnios() {
         return plazoAnios;
     }
 
-    public void setPlazoAnios(int plazoAnios) {
+    public void setPlazoAnios(Integer plazoAnios) {
         this.plazoAnios = plazoAnios;
     }
 
-    public int getInteres() {
+    public Integer getInteres() {
         return interes;
     }
 
-    public void setInteres(int interes) {
+    public void setInteres(Integer interes) {
         this.interes = interes;
     }
 
@@ -96,11 +96,11 @@ public class Prestamo {
         this.motivoDeRechazo = motivoDeRechazo;
     }
 
-    public int getIdEmpleado() {
+    public Integer getIdEmpleado() {
         return idEmpleado;
     }
 
-    public void setIdEmpleado(int idEmpleado) {
+    public void setIdEmpleado(Integer idEmpleado) {
         this.idEmpleado = idEmpleado;
     }
 
@@ -113,19 +113,19 @@ public class Prestamo {
 
         if (id != prestamo.id) return false;
         if (idCliente != prestamo.idCliente) return false;
-        if (plazoAnios != prestamo.plazoAnios) return false;
-        if (interes != prestamo.interes) return false;
-        if (idEmpleado != prestamo.idEmpleado) return false;
         if (monto != null ? !monto.equals(prestamo.monto) : prestamo.monto != null) return false;
         if (fechaHoraSolicitud != null ? !fechaHoraSolicitud.equals(prestamo.fechaHoraSolicitud) : prestamo.fechaHoraSolicitud != null)
             return false;
         if (estado != null ? !estado.equals(prestamo.estado) : prestamo.estado != null) return false;
         if (cuotaMensual != null ? !cuotaMensual.equals(prestamo.cuotaMensual) : prestamo.cuotaMensual != null)
             return false;
+        if (plazoAnios != null ? !plazoAnios.equals(prestamo.plazoAnios) : prestamo.plazoAnios != null) return false;
+        if (interes != null ? !interes.equals(prestamo.interes) : prestamo.interes != null) return false;
         if (fechaHoraRespuesta != null ? !fechaHoraRespuesta.equals(prestamo.fechaHoraRespuesta) : prestamo.fechaHoraRespuesta != null)
             return false;
         if (motivoDeRechazo != null ? !motivoDeRechazo.equals(prestamo.motivoDeRechazo) : prestamo.motivoDeRechazo != null)
             return false;
+        if (idEmpleado != null ? !idEmpleado.equals(prestamo.idEmpleado) : prestamo.idEmpleado != null) return false;
 
         return true;
     }
@@ -138,11 +138,11 @@ public class Prestamo {
         result = 31 * result + (fechaHoraSolicitud != null ? fechaHoraSolicitud.hashCode() : 0);
         result = 31 * result + (estado != null ? estado.hashCode() : 0);
         result = 31 * result + (cuotaMensual != null ? cuotaMensual.hashCode() : 0);
-        result = 31 * result + plazoAnios;
-        result = 31 * result + interes;
+        result = 31 * result + (plazoAnios != null ? plazoAnios.hashCode() : 0);
+        result = 31 * result + (interes != null ? interes.hashCode() : 0);
         result = 31 * result + (fechaHoraRespuesta != null ? fechaHoraRespuesta.hashCode() : 0);
         result = 31 * result + (motivoDeRechazo != null ? motivoDeRechazo.hashCode() : 0);
-        result = 31 * result + idEmpleado;
+        result = 31 * result + (idEmpleado != null ? idEmpleado.hashCode() : 0);
         return result;
     }
 }

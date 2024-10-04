@@ -8,17 +8,14 @@
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="connection.username">root</property>
         <property name="show_sql">true</property>
-        <property name="connection.password"></property>
         <mapping resource="Cliente.hbm.xml"/>
         <mapping resource="Credencialcliente.hbm.xml"/>
         <mapping resource="Credencialempleado.hbm.xml"/>
         <mapping resource="Cuenta.hbm.xml"/>
         <mapping resource="Empleado.hbm.xml"/>
         <mapping resource="Prestamo.hbm.xml"/>
-        <mapping resource="Referenciapersonal.hbm.xml"/>
         <mapping resource="Sucursal.hbm.xml"/>
         <mapping resource="Transaccion.hbm.xml"/>
-        <mapping resource="Credencialgerente.hbm.xml"/>
         <mapping resource="Dependiente.hbm.xml"/>
         <mapping resource="Gerente.hbm.xml"/>
         <!-- <property name="connection.username"/> -->

@@ -24,16 +24,19 @@
             <column name="FechaDeNacimiento" sql-type="date"/>
         </property>
         <property name="telefonoMovil">
-            <column name="TelefonoMovil" sql-type="varchar(20)" length="20"/>
+            <column name="TelefonoMovil" sql-type="char(9)" length="9"/>
         </property>
         <property name="correoElectronico">
-            <column name="CorreoElectronico" sql-type="text"/>
+            <column name="CorreoElectronico" sql-type="varchar(100)" length="100"/>
         </property>
         <property name="direccion">
             <column name="Direccion" sql-type="text"/>
         </property>
         <property name="cargo">
-            <column name="Cargo" sql-type="varchar(100)" length="100"/>
+            <column name="Cargo" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="idSucursal">
+            <column name="ID_Sucursal" sql-type="int" not-null="true"/>
         </property>
         <property name="estado">
             <column name="Estado" sql-type="varchar(8)" length="8"/>

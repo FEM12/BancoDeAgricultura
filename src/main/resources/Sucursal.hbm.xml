@@ -12,13 +12,10 @@
             <column name="Direccion" sql-type="text"/>
         </property>
         <property name="telefonoFijo">
-            <column name="TelefonoFijo" sql-type="varchar(20)" length="20"/>
+            <column name="TelefonoFijo" sql-type="char(9)" length="9"/>
         </property>
         <property name="correoElectronico">
-            <column name="CorreoElectronico" sql-type="text" not-null="true"/>
-        </property>
-        <property name="idGerente">
-            <column name="ID_Gerente" sql-type="int"/>
+            <column name="CorreoElectronico" sql-type="varchar(100)" length="100" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

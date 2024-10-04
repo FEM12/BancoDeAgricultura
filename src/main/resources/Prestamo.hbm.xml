@@ -12,7 +12,7 @@
             <column name="ID_Cliente" sql-type="int"/>
         </property>
         <property name="monto">
-            <column name="Monto" sql-type="decimal(20,2)" precision="20" scale="2"/>
+            <column name="Monto" sql-type="decimal(6,2)" precision="6" scale="2"/>
         </property>
         <property name="fechaHoraSolicitud">
             <column name="FechaHoraSolicitud" sql-type="datetime"/>
@@ -21,22 +21,22 @@
             <column name="Estado" sql-type="varchar(10)" length="10"/>
         </property>
         <property name="cuotaMensual">
-            <column name="CuotaMensual" sql-type="decimal(20,2)" precision="20" scale="2"/>
+            <column name="CuotaMensual" sql-type="decimal(6,2)" precision="6" scale="2" not-null="true"/>
         </property>
         <property name="plazoAnios">
-            <column name="PlazoAnios" sql-type="int"/>
+            <column name="PlazoAnios" sql-type="int" not-null="true"/>
         </property>
         <property name="interes">
-            <column name="Interes" sql-type="int"/>
+            <column name="Interes" sql-type="int" not-null="true"/>
         </property>
         <property name="fechaHoraRespuesta">
-            <column name="FechaHoraRespuesta" sql-type="datetime"/>
+            <column name="FechaHoraRespuesta" sql-type="datetime" not-null="true"/>
         </property>
         <property name="motivoDeRechazo">
             <column name="MotivoDeRechazo" sql-type="text" not-null="true"/>
         </property>
         <property name="idEmpleado">
-            <column name="ID_Empleado" sql-type="int"/>
+            <column name="ID_Empleado" sql-type="int" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

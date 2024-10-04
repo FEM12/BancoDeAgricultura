@@ -9,10 +9,10 @@
             <column name="ID" sql-type="int"/>
         </id>
         <property name="usuario">
-            <column name="Usuario" sql-type="varchar(100)" length="100"/>
+            <column name="Usuario" sql-type="varchar(50)" length="50"/>
         </property>
         <property name="contrasena">
-            <column name="Contrasena" sql-type="varchar(260)" length="260"/>
+            <column name="Contrasena" sql-type="varchar(70)" length="70"/>
         </property>
         <property name="idCliente">
             <column name="ID_Cliente" sql-type="int"/>

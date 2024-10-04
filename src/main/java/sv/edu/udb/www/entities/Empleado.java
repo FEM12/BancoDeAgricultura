@@ -14,7 +14,7 @@ public class Empleado {
     private String direccion;
     private String cargo;
     private String estado;
-    private int idGerente;
+    private Integer idGerente;
 
     public int getId() {
         return id;
@@ -104,11 +104,11 @@ public class Empleado {
         this.estado = estado;
     }
 
-    public int getIdGerente() {
+    public Integer getIdGerente() {
         return idGerente;
     }
 
-    public void setIdGerente(int idGerente) {
+    public void setIdGerente(Integer idGerente) {
         this.idGerente = idGerente;
     }
 
@@ -120,7 +120,6 @@ public class Empleado {
         Empleado empleado = (Empleado) o;
 
         if (id != empleado.id) return false;
-        if (idGerente != empleado.idGerente) return false;
         if (nombres != null ? !nombres.equals(empleado.nombres) : empleado.nombres != null) return false;
         if (apellidos != null ? !apellidos.equals(empleado.apellidos) : empleado.apellidos != null) return false;
         if (genero != null ? !genero.equals(empleado.genero) : empleado.genero != null) return false;
@@ -134,6 +133,7 @@ public class Empleado {
         if (direccion != null ? !direccion.equals(empleado.direccion) : empleado.direccion != null) return false;
         if (cargo != null ? !cargo.equals(empleado.cargo) : empleado.cargo != null) return false;
         if (estado != null ? !estado.equals(empleado.estado) : empleado.estado != null) return false;
+        if (idGerente != null ? !idGerente.equals(empleado.idGerente) : empleado.idGerente != null) return false;
 
         return true;
     }
@@ -151,7 +151,7 @@ public class Empleado {
         result = 31 * result + (direccion != null ? direccion.hashCode() : 0);
         result = 31 * result + (cargo != null ? cargo.hashCode() : 0);
         result = 31 * result + (estado != null ? estado.hashCode() : 0);
-        result = 31 * result + idGerente;
+        result = 31 * result + (idGerente != null ? idGerente.hashCode() : 0);
         return result;
     }
 }

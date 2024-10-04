@@ -13,6 +13,7 @@ public class Gerente {
     private String correoElectronico;
     private String direccion;
     private String cargo;
+    private Integer idSucursal;
     private String estado;
 
     public int getId() {
@@ -95,6 +96,14 @@ public class Gerente {
         this.cargo = cargo;
     }
 
+    public Integer getIdSucursal() {
+        return idSucursal;
+    }
+
+    public void setIdSucursal(Integer idSucursal) {
+        this.idSucursal = idSucursal;
+    }
+
     public String getEstado() {
         return estado;
     }
@@ -123,6 +132,7 @@ public class Gerente {
             return false;
         if (direccion != null ? !direccion.equals(gerente.direccion) : gerente.direccion != null) return false;
         if (cargo != null ? !cargo.equals(gerente.cargo) : gerente.cargo != null) return false;
+        if (idSucursal != null ? !idSucursal.equals(gerente.idSucursal) : gerente.idSucursal != null) return false;
         if (estado != null ? !estado.equals(gerente.estado) : gerente.estado != null) return false;
 
         return true;
@@ -140,6 +150,7 @@ public class Gerente {
         result = 31 * result + (correoElectronico != null ? correoElectronico.hashCode() : 0);
         result = 31 * result + (direccion != null ? direccion.hashCode() : 0);
         result = 31 * result + (cargo != null ? cargo.hashCode() : 0);
+        result = 31 * result + (idSucursal != null ? idSucursal.hashCode() : 0);
         result = 31 * result + (estado != null ? estado.hashCode() : 0);
         return result;
     }

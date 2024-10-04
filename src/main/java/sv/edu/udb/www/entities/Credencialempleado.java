@@ -4,7 +4,8 @@ public class Credencialempleado {
     private int id;
     private String usuario;
     private String contrasena;
-    private int idEmpleado;
+    private Integer idEmpleado;
+    private Integer idGerente;
 
     public int getId() {
         return id;
@@ -30,12 +31,20 @@ public class Credencialempleado {
         this.contrasena = contrasena;
     }
 
-    public int getIdEmpleado() {
+    public Integer getIdEmpleado() {
         return idEmpleado;
     }
 
-    public void setIdEmpleado(int idEmpleado) {
+    public void setIdEmpleado(Integer idEmpleado) {
         this.idEmpleado = idEmpleado;
+    }
+
+    public Integer getIdGerente() {
+        return idGerente;
+    }
+
+    public void setIdGerente(Integer idGerente) {
+        this.idGerente = idGerente;
     }
 
     @Override
@@ -46,9 +55,10 @@ public class Credencialempleado {
         Credencialempleado that = (Credencialempleado) o;
 
         if (id != that.id) return false;
-        if (idEmpleado != that.idEmpleado) return false;
         if (usuario != null ? !usuario.equals(that.usuario) : that.usuario != null) return false;
         if (contrasena != null ? !contrasena.equals(that.contrasena) : that.contrasena != null) return false;
+        if (idEmpleado != null ? !idEmpleado.equals(that.idEmpleado) : that.idEmpleado != null) return false;
+        if (idGerente != null ? !idGerente.equals(that.idGerente) : that.idGerente != null) return false;
 
         return true;
     }
@@ -58,7 +68,8 @@ public class Credencialempleado {
         int result = id;
         result = 31 * result + (usuario != null ? usuario.hashCode() : 0);
         result = 31 * result + (contrasena != null ? contrasena.hashCode() : 0);
-        result = 31 * result + idEmpleado;
+        result = 31 * result + (idEmpleado != null ? idEmpleado.hashCode() : 0);
+        result = 31 * result + (idGerente != null ? idGerente.hashCode() : 0);
         return result;
     }
 }

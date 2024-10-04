@@ -12,13 +12,13 @@
             <column name="NumeroDeCuenta" sql-type="char(20)" length="20"/>
         </property>
         <property name="tipoDeCuenta">
-            <column name="TipoDeCuenta" sql-type="text"/>
+            <column name="TipoDeCuenta" sql-type="varchar(10)" length="10"/>
         </property>
         <property name="fechaDeApertura">
             <column name="FechaDeApertura" sql-type="date"/>
         </property>
         <property name="saldo">
-            <column name="Saldo" sql-type="decimal(20,2)" precision="20" scale="2"/>
+            <column name="Saldo" sql-type="decimal(6,2)" precision="6" scale="2"/>
         </property>
         <property name="estado">
             <column name="Estado" sql-type="varchar(8)" length="8"/>

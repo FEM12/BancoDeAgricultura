@@ -8,26 +8,26 @@
         <id name="id">
             <column name="ID" sql-type="int"/>
         </id>
-        <property name="idCuenta">
-            <column name="ID_Cuenta" sql-type="int"/>
+        <property name="idCuentaOrigen">
+            <column name="ID_CuentaOrigen" sql-type="int"/>
         </property>
         <property name="tipoDeTransaccion">
-            <column name="TipoDeTransaccion" sql-type="varchar(20)" length="20"/>
+            <column name="TipoDeTransaccion" sql-type="varchar(14)" length="14"/>
         </property>
         <property name="monto">
-            <column name="Monto" sql-type="decimal(20,2)" precision="20" scale="2"/>
+            <column name="Monto" sql-type="decimal(6,2)" precision="6" scale="2"/>
         </property>
         <property name="fechaHora">
             <column name="FechaHora" sql-type="datetime"/>
         </property>
-        <property name="cuentaDeDestino">
-            <column name="CuentaDeDestino" sql-type="char(20)" length="20" not-null="true"/>
+        <property name="idCuentaDestino">
+            <column name="ID_CuentaDestino" sql-type="int" not-null="true"/>
         </property>
         <property name="idEmpleado">
             <column name="ID_Empleado" sql-type="int" not-null="true"/>
         </property>
         <property name="comisionEmpleado">
-            <column name="ComisionEmpleado" sql-type="int" not-null="true"/>
+            <column name="ComisionEmpleado" sql-type="int"/>
         </property>
     </class>
 </hibernate-mapping>

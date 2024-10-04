@@ -5,7 +5,6 @@ public class Sucursal {
     private String direccion;
     private String telefonoFijo;
     private String correoElectronico;
-    private int idGerente;
 
     public int getId() {
         return id;
@@ -39,14 +38,6 @@ public class Sucursal {
         this.correoElectronico = correoElectronico;
     }
 
-    public int getIdGerente() {
-        return idGerente;
-    }
-
-    public void setIdGerente(int idGerente) {
-        this.idGerente = idGerente;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -55,7 +46,6 @@ public class Sucursal {
         Sucursal sucursal = (Sucursal) o;
 
         if (id != sucursal.id) return false;
-        if (idGerente != sucursal.idGerente) return false;
         if (direccion != null ? !direccion.equals(sucursal.direccion) : sucursal.direccion != null) return false;
         if (telefonoFijo != null ? !telefonoFijo.equals(sucursal.telefonoFijo) : sucursal.telefonoFijo != null)
             return false;
@@ -71,7 +61,6 @@ public class Sucursal {
         result = 31 * result + (direccion != null ? direccion.hashCode() : 0);
         result = 31 * result + (telefonoFijo != null ? telefonoFijo.hashCode() : 0);
         result = 31 * result + (correoElectronico != null ? correoElectronico.hashCode() : 0);
-        result = 31 * result + idGerente;
         return result;
     }
 }
