@@ -23,7 +23,6 @@ public class ClienteLogin implements Serializable{
     public String getUsername() {
         return username;
     }
-
     public void setUsername(String username) {
         this.username = username;
     }
@@ -31,7 +30,6 @@ public class ClienteLogin implements Serializable{
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }

@@ -10,14 +10,8 @@ import jakarta.faces.context.FacesContext;
 @ViewScoped
 public class Navegacion {
 
-    public String goToAperturaCuenta(){
+    public String goToAperturaCuenta(){ return "/Empleados/AperturadeCuenta"; }
 
-        /*FacesContext facesContext = FacesContext.getCurrentInstance();
-        NavigationHandler navigationHandler = facesContext.getApplication().getNavigationHandler();
-        navigationHandler.handleNavigation(facesContext, null, "AperturadeCuenta.xhtml"); */
-
-        return "Empleados/AperturadeCuenta";
-
-    }
+    public String goToPanelCajero(){ return "/Empleado/PanelCajero"; }
 
 }
