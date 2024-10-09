@@ -1,6 +1,6 @@
 package sv.edu.udb.www.entities;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Empleado {
     private int id;

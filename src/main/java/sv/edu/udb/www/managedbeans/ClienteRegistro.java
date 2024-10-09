@@ -1,15 +1,17 @@
 package sv.edu.udb.www.managedbeans;
 
 import sv.edu.udb.www.entities.Cliente;
-import sv.edu.udb.www.utils.ExpresionesUtil;
-import sv.edu.udb.www.utils.HibernateUtil;
 
-import jakarta.faces.application.FacesMessage;
+import static sv.edu.udb.www.utils.ConversorFecha.convertirFecha;
+import static sv.edu.udb.www.utils.ExpresionesUtil.validacion;
+import sv.edu.udb.www.utils.HibernateUtil;
+import static sv.edu.udb.www.utils.JsfUtil.*;
+
 import jakarta.faces.bean.ManagedBean;
 import jakarta.faces.bean.ViewScoped;
-import jakarta.faces.context.FacesContext;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Date;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -21,7 +23,7 @@ public class ClienteRegistro {
     private String apellidos;
     private String genero;
     private String dui;
-    private Date fechaDeNacimiento;
+    private String fechaDeNacimiento;
     private String estadoCivil;
     private String ocupacion;
     private BigDecimal ingresoMensual;
@@ -36,8 +38,13 @@ public class ClienteRegistro {
 
     public void setNombres(String nombres) {
 
-        if (ExpresionesUtil.validacion(1, nombres)){ this.nombres = nombres; }
-        else { System.out.println("Error"); }
+        if (validacion(1, nombres)){
+
+            this.nombres = nombres;
+            mensajeExito("Nombre correcto");
+
+        }
+        else { mensajeError("Formato de nombre incorrecto"); }
 
     }
 
@@ -47,8 +54,13 @@ public class ClienteRegistro {
 
     public void setApellidos(String apellidos) {
 
-        if (ExpresionesUtil.validacion(1, apellidos)){ this.apellidos = apellidos; }
-        else { System.out.println("Error"); }
+        if (validacion(1, apellidos)){
+
+            this.apellidos = apellidos;
+            mensajeExito("Apellido correcto");
+
+        }
+        else { mensajeError("Formato de apellido incorrecto"); }
 
     }
 
@@ -57,7 +69,15 @@ public class ClienteRegistro {
     }
 
     public void setGenero(String genero) {
-        this.genero = genero;
+
+        if (validacion(2, genero)) {
+
+            this.genero = genero;
+            mensajeExito("Genero correcto");
+
+        }
+        else { mensajeError("Formato de genero incorrecto"); }
+
     }
 
     public String getDui() {
@@ -66,17 +86,30 @@ public class ClienteRegistro {
 
     public void setDui(String dui) {
 
-        if (ExpresionesUtil.validacion(2, dui)){ this.dui = dui; }
-        else { System.out.println("Error"); }
+        if (validacion(3, dui)) {
+
+            this.dui = dui;
+            mensajeExito("DUI correcto");
+
+        }
+        else { mensajeError("Formato de DUI incorrecto"); }
 
     }
 
-    public Date getFechaDeNacimiento() {
+    public String getFechaDeNacimiento() {
         return fechaDeNacimiento;
     }
 
-    public void setFechaDeNacimiento(Date fechaDeNacimiento) {
-        this.fechaDeNacimiento = fechaDeNacimiento;
+    public void setFechaDeNacimiento(String fechaDeNacimiento) {
+
+        if(validacion(4, fechaDeNacimiento)) {
+
+            this.fechaDeNacimiento = convertirFecha(fechaDeNacimiento);
+            mensajeExito("Fecha correcta");
+
+        }
+        else { mensajeError("Formato de fecha incorrecto"); }
+
     }
 
     public String getEstadoCivil() {
@@ -84,7 +117,15 @@ public class ClienteRegistro {
     }
 
     public void setEstadoCivil(String estadoCivil) {
-        this.estadoCivil = estadoCivil;
+
+        if (validacion(5, estadoCivil)) {
+
+            this.estadoCivil = estadoCivil;
+            mensajeExito("Estado civil correcto");
+
+        }
+        else { mensajeError("Formato de estado civil incorrecto"); }
+
     }
 
     public String getOcupacion() {
@@ -101,8 +142,13 @@ public class ClienteRegistro {
 
     public void setIngresoMensual(BigDecimal ingresoMensual) {
 
-        if (ExpresionesUtil.validacion(3, ingresoMensual.toString())){ this.ingresoMensual = ingresoMensual; }
-        else { System.out.println("Error"); }
+        if (validacion(6, ingresoMensual.toString())) {
+
+            this.ingresoMensual = ingresoMensual;
+            mensajeExito("Ingreso mensual correcto");
+
+        }
+        else { mensajeError("Formato de ingreso mensual incorrecto"); }
 
     }
 
@@ -112,8 +158,13 @@ public class ClienteRegistro {
 
     public void setTelefonoMovil(String telefonoMovil) {
 
-        if (ExpresionesUtil.validacion(4, telefonoMovil)){ this.telefonoMovil = telefonoMovil; }
-        else { System.out.println("Error"); }
+        if (validacion(7, telefonoMovil)) {
+
+            this.telefonoMovil = telefonoMovil;
+            mensajeExito("Teléfono móvil correcto");
+
+        }
+        else { mensajeError("Formato de teléfono móvil incorrecto"); }
 
     }
 
@@ -123,8 +174,13 @@ public class ClienteRegistro {
 
     public void setCorreoElectronico(String correoElectronico) {
 
-        if (ExpresionesUtil.validacion(5, correoElectronico)){ this.correoElectronico = correoElectronico; }
-        else { System.out.println("Error");}
+        if (validacion(8, correoElectronico)) {
+
+            this.correoElectronico = correoElectronico;
+            mensajeExito("Correo electrónico correcto");
+
+        }
+        else { mensajeError("Formato de correo electrónico incorrecto"); }
 
     }
 
@@ -141,7 +197,15 @@ public class ClienteRegistro {
     }
 
     public void setClasificacionDeCliente(String clasificacionDeCliente) {
-        this.clasificacionDeCliente = clasificacionDeCliente;
+
+        if (validacion(9, clasificacionDeCliente)) {
+
+            this.clasificacionDeCliente = clasificacionDeCliente;
+            mensajeExito("Clasificación de cliente correcta");
+
+        }
+        else { mensajeError("Formato de clasificación de cliente incorrecto"); }
+
     }
 
     public String register() {
@@ -156,23 +220,23 @@ public class ClienteRegistro {
 
             Cliente nuevoCliente = new Cliente();
 
-            nuevoCliente.setNombres(nombres);
-            nuevoCliente.setApellidos(apellidos);
-            nuevoCliente.setGenero(genero);
-            nuevoCliente.setDui(dui);
-            nuevoCliente.setFechaDeNacimiento(fechaDeNacimiento);
-            nuevoCliente.setEstadoCivil(estadoCivil);
-            nuevoCliente.setOcupacion(ocupacion);
-            nuevoCliente.setIngresoMensual(ingresoMensual);
-            nuevoCliente.setTelefonoMovil(telefonoMovil);
-            nuevoCliente.setCorreoElectronico(correoElectronico);
-            nuevoCliente.setDireccion(direccion);
-            nuevoCliente.setClasificacionDeCliente(clasificacionDeCliente);
+            nuevoCliente.setNombres(getNombres());
+            nuevoCliente.setApellidos(getApellidos());
+            nuevoCliente.setGenero(getGenero());
+            nuevoCliente.setDui(getDui());
+            nuevoCliente.setFechaDeNacimiento(Date.valueOf(getFechaDeNacimiento()));
+            nuevoCliente.setEstadoCivil(getEstadoCivil());
+            nuevoCliente.setOcupacion(getOcupacion());
+            nuevoCliente.setIngresoMensual(getIngresoMensual());
+            nuevoCliente.setTelefonoMovil(getTelefonoMovil());
+            nuevoCliente.setCorreoElectronico(getCorreoElectronico());
+            nuevoCliente.setDireccion(getDireccion());
+            nuevoCliente.setClasificacionDeCliente(getClasificacionDeCliente());
 
             session.save(nuevoCliente);
             tx.commit();
 
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cliente registrado con éxito"));
+            mensajeExito("Cliente registrado con éxito");
 
             return "RegistroCliente";
 
@@ -182,9 +246,9 @@ public class ClienteRegistro {
             if (tx != null) { tx.rollback(); }
             e.printStackTrace();
 
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error al registrar cliente", e.getMessage()));
+            mensajeError("Error al registrar cliente");
 
-            return "PanelCajero";
+            return "RegistroCliente";
         }
         finally { if (session != null) { session.close(); } }
 

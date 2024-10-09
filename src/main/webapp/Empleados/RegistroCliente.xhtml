@@ -10,160 +10,206 @@
 
 <h:head>
     <h:outputStylesheet name="css/RegistroCliente.css"/>
+    <h:outputStylesheet name="css/ErrorAlerts.css"/>
     <title>Registrar Cliente</title>
 </h:head>
 
 <h:body>
 
-    <div class="container">
+     <h:form>
 
-        <h2 class="title">Registrar Cliente</h2>
+         <div class="container">
 
-        <h:form>
-            <div class="form-group">
-                <div class="form-row">
-                    <div class="form-column">
-                        <h:inputText
-                                id="nombres"
-                                a:placeholder="Nombres"
-                                value="#{clienteRegistro.nombres}"
-                                styleClass="input"
-                        />
-                    </div>
-                    <div class="form-column">
-                        <h:inputText
-                                id="apellidos"
-                                a:placeholder="Apellidos"
-                                value="#{clienteRegistro.apellidos}"
-                                styleClass="input"
-                        />
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-column">
-                        <h:selectOneMenu
-                                id="genero"
-                                value="#{clienteRegistro.genero}"
-                                styleClass="input"
-                        >
-                            <f:selectItem itemLabel="Genero" itemDisabled="true"/>
-                            <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
-                            <f:selectItem itemLabel="Femenino" itemValue="Femenino"/>
-                        </h:selectOneMenu>
-                    </div>
-                    <div class="form-column">
-                        <h:inputText
-                                id="documentoDeIdentidad"
-                                a:placeholder="Documento de Identidad"
-                                value="#{clienteRegistro.dui}"
-                                styleClass="input"
-                        />
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-column">
-                        <h:inputText
-                                id="fechaDeNacimiento"
-                                a:placeholder="Fecha de Nacimiento (aaaa-mm-dd)"
-                                value="#{clienteRegistro.fechaDeNacimiento}"
-                                styleClass="input">
-                            <f:convertDateTime pattern="yyyy-MM-dd" />
-                        </h:inputText>
-                    </div>
-                    <div class="form-column">
-                        <h:selectOneMenu
-                                id="estadoCivil"
-                                value="#{clienteRegistro.estadoCivil}"
-                                styleClass="input"
-                        >
-                            <f:selectItem itemLabel="Estado Civil" itemDisabled="true"/>
-                            <f:selectItem itemLabel="Soltero/a" itemValue="Soltero/a"/>
-                            <f:selectItem itemLabel="Casado/a" itemValue="Casado/a"/>
-                            <f:selectItem itemLabel="Divorciado/a" itemValue="Divorciado/a"/>
-                            <f:selectItem itemLabel="Viudo/a" itemValue="Viudo/a"/>
-                            <f:selectItem itemLabel="Unido/a" itemValue="Unido/a"/>
-                        </h:selectOneMenu>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-column">
-                        <h:inputText
-                                id="ocupacion"
-                                a:placeholder="Ocupación"
-                                value="#{clienteRegistro.ocupacion}"
-                                styleClass="input"
-                        />
-                    </div>
-                    <div class="form-column">
-                        <h:inputText
-                                id="ingresoMensual"
-                                a:placeholder="Ingreso Mensual"
-                                value="#{clienteRegistro.ingresoMensual}"
-                                styleClass="input"
-                                type="number"
-                                step="0.01"
-                        />
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-column">
-                        <h:inputText
-                                id="direccion"
-                                a:placeholder="Dirección"
-                                value="#{clienteRegistro.direccion}"
-                                styleClass="input"
-                        />
-                    </div>
-                    <div class="form-column">
-                        <h:inputText
-                                id="telefonoMovil"
-                                a:placeholder="Teléfono Móvil"
-                                value="#{clienteRegistro.telefonoMovil}"
-                                styleClass="input"
-                        />
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-column">
-                        <h:inputText
-                                id="correoElectronico"
-                                a:placeholder="Correo Electrónico"
-                                value="#{clienteRegistro.correoElectronico}"
-                                styleClass="input"
-                        />
-                    </div>
-                    <div class="form-column">
-                        <h:selectOneMenu
-                                id="clasificacionDeCliente"
-                                value="#{clienteRegistro.clasificacionDeCliente}"
-                                styleClass="input"
-                        >
-                            <f:selectItem itemLabel="Clasificación de Cliente" itemDisabled="true"/>
-                            <f:selectItem itemLabel="Cliente" itemValue="Cliente"/>
-                            <f:selectItem itemLabel="Prestamista" itemValue="Prestamista"/>
-                        </h:selectOneMenu>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-column">
-                        <h:commandButton
-                                value="Regresar al panel de control"
-                                action="#{navegacion.goToPanelCajero()}"
-                                styleClass="input button-back"
-                        />
-                    </div>
-                    <div class="form-column">
-                        <h:commandButton
-                                value="Registrar cliente"
-                                action="#{clienteRegistro.register()}"
-                                styleClass="input button-register"
-                        />
-                    </div>
-                </div>
-            </div>
-        </h:form>
+             <h2 class="title">Registrar Cliente</h2>
 
-    </div>
+             <div class="form-group">
+                 <div class="form-row">
+                     <div class="form-column">
+                         <h:inputText
 
+                                 id="nombres"
+                                 a:placeholder="Nombres"
+                                 value="#{clienteRegistro.nombres}"
+                                 styleClass="input"
+                                 required="true"
+                                 requiredMessage="Campo 'Nombres' vacío"
+
+                         />
+
+                     </div>
+                     <div class="form-column">
+                         <h:inputText
+                                 id="apellidos"
+                                 a:placeholder="Apellidos"
+                                 value="#{clienteRegistro.apellidos}"
+                                 styleClass="input"
+                                 required="true"
+                                 requiredMessage="Campo 'Apellidos' vacío"
+                         />
+                     </div>
+                 </div>
+                 <div class="form-row">
+                     <div class="form-column">
+                         <h:selectOneMenu
+                                 id="genero"
+                                 value="#{clienteRegistro.genero}"
+                                 styleClass="input"
+                                 required="true"
+                                 requiredMessage="'Genero' no seleccionado'"
+                         >
+                             <f:selectItem itemLabel="Genero" itemDisabled="true"/>
+                             <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
+                             <f:selectItem itemLabel="Femenino" itemValue="Femenino"/>
+                         </h:selectOneMenu>
+                     </div>
+                     <div class="form-column">
+                         <h:inputText
+                                 id="documentoDeIdentidad"
+                                 a:placeholder="DUI"
+                                 value="#{clienteRegistro.dui}"
+                                 styleClass="input"
+                                 required="true"
+                                 requiredMessage="Campo 'DUI' vacío'"
+                         />
+                     </div>
+                 </div>
+                 <div class="form-row">
+                     <div class="form-column">
+                         <h:inputText
+                                 id="fechaDeNacimiento"
+                                 a:placeholder="Fecha de Nacimiento (dd/mm/aaaa)"
+                                 value="#{clienteRegistro.fechaDeNacimiento}"
+                                 styleClass="input"
+                                 required="true"
+                                 requiredMessage="Campo 'Fecha de nacimiento' vacío"
+                         />
+                     </div>
+                     <div class="form-column">
+                         <h:selectOneMenu
+                                 id="estadoCivil"
+                                 value="#{clienteRegistro.estadoCivil}"
+                                 styleClass="input"
+                                 required="true"
+                                 requiredMessage="'Estado Civil' no seleccionado"
+                         >
+                             <f:selectItem itemLabel="Estado Civil" itemDisabled="true"/>
+                             <f:selectItem itemLabel="Soltero/a" itemValue="Soltero/a"/>
+                             <f:selectItem itemLabel="Casado/a" itemValue="Casado/a"/>
+                             <f:selectItem itemLabel="Divorciado/a" itemValue="Divorciado/a"/>
+                             <f:selectItem itemLabel="Viudo/a" itemValue="Viudo/a"/>
+                             <f:selectItem itemLabel="Unido/a" itemValue="Unido/a"/>
+                         </h:selectOneMenu>
+                     </div>
+                 </div>
+                 <div class="form-row">
+                     <div class="form-column">
+                         <h:inputText
+                                 id="ocupacion"
+                                 a:placeholder="Ocupación"
+                                 value="#{clienteRegistro.ocupacion}"
+                                 styleClass="input"
+                                 required="true"
+                                 requiredMessage="Campo 'Ocupación' vacío"
+                         />
+                     </div>
+                     <div class="form-column">
+                         <h:inputText
+                                 id="ingresoMensual"
+                                 a:placeholder="Ingreso Mensual"
+                                 value="#{clienteRegistro.ingresoMensual}"
+                                 styleClass="input"
+                                 required="true"
+                                 requiredMessage="Campo 'Ingreso Mensual' vacío"
+                         />
+                     </div>
+                 </div>
+                 <div class="form-row">
+                     <div class="form-column">
+                         <h:inputText
+                                 id="direccion"
+                                 a:placeholder="Dirección"
+                                 value="#{clienteRegistro.direccion}"
+                                 styleClass="input"
+                                 required="true"
+                                 requiredMessage="Campo 'Dirección' vacío"
+                         />
+                     </div>
+                     <div class="form-column">
+                         <h:inputText
+                                 id="telefonoMovil"
+                                 a:placeholder="Teléfono Móvil"
+                                 value="#{clienteRegistro.telefonoMovil}"
+                                 styleClass="input"
+                                 required="true"
+                                 requiredMessage="Campo 'Telefono Movil' vacío"
+                         />
+                     </div>
+                 </div>
+                 <div class="form-row">
+                     <div class="form-column">
+                         <h:inputText
+                                 id="correoElectronico"
+                                 a:placeholder="Correo Electrónico"
+                                 value="#{clienteRegistro.correoElectronico}"
+                                 styleClass="input"
+                                 required="true"
+                                 requiredMessage="Campo 'Correo Electronico' vacío"
+                         />
+                     </div>
+                     <div class="form-column">
+                         <h:selectOneMenu
+                                 id="clasificacionDeCliente"
+                                 value="#{clienteRegistro.clasificacionDeCliente}"
+                                 styleClass="input"
+                                 required="true"
+                                 requiredMessage="'Clasificación de Cliente' no seleccionada"
+                         >
+                             <f:selectItem itemLabel="Clasificación de Cliente" itemDisabled="true"/>
+                             <f:selectItem itemLabel="Cliente" itemValue="Cliente"/>
+                             <f:selectItem itemLabel="Prestamista" itemValue="Prestamista"/>
+                         </h:selectOneMenu>
+                     </div>
+                 </div>
+                 <div class="form-row">
+                     <div class="form-column">
+
+                         <h:commandButton
+                                 value="Regresar al panel de control"
+                                 action="#{navegacion.goToPanelCajero()}"
+                                 styleClass="input button-back"
+                         />
+
+                     </div>
+                     <div class="form-column">
+                         <h:commandButton
+                                 value="Registrar cliente"
+                                 action="#{clienteRegistro.register()}"
+                                 styleClass="input button-register"
+                         />
+                     </div>
+                 </div>
+
+             </div>
+         </div>
+
+         <div class="alerts">
+             <h:messages for="nombres" errorClass="error"/>
+             <h:message for="apellidos" errorClass="error" />
+             <h:message for="genero" errorClass="error" />
+             <h:message for="documentoDeIdentidad" errorClass="error" />
+             <h:message for="fechaDeNacimiento" errorClass="error" />
+             <h:message for="estadoCivil" errorClass="error" />
+             <h:message for="ocupacion" errorClass="error" />
+             <h:message for="ingresoMensual" errorClass="error" />
+             <h:message for="direccion" errorClass="error" />
+             <h:message for="telefonoMovil" errorClass="error" />
+             <h:message for="correoElectronico" errorClass="error" />
+             <h:message for="clasificacionDeCliente" errorClass="error" />
+
+             <h:messages globalOnly="false" errorClass="error" infoClass="success"/>
+         </div>
+
+     </h:form>
+    
 </h:body>
 </html>
