@@ -15,47 +15,56 @@
 
 <h:head>
     <h:outputStylesheet name="css/EmpleadoLogin.css" />
+    <h:outputStylesheet name="css/ErrorAlerts.css"/>
     <title>Sistema de Gestión Bancaria</title>
 </h:head>
 
 <h:body>
 
-    <div class="container">
+   <h:form>
 
-        <h2 class="title">BIENVENIDO/A</h2>
-        <h2 class="title">Sistema de Gestión Bancaria</h2>
+       <div class="container">
 
-        <h:form>
+           <h2 class="title">Bienvenido/a</h2>
+           <h2 class="title">Sistema de Gestión Bancaria</h2>
 
-            <div>
-                <h:inputText
-                        id="username"
-                        a:placeholder="Usuario"
-                        value="#{empleadoLogin.username}"
-                        styleClass="input"
-                />
-            </div>
+           <div>
+               <h:inputText
+                       id="username"
+                       a:placeholder="Usuario"
+                       value="#{empleadoLogin.username}"
+                       styleClass="input"
+                       required="true"
+                       requiredMessage="Error: Campo usuario vacío"
+               />
+           </div>
 
-            <div>
-                <h:inputSecret
-                        id="password"
-                        a:placeholder="Contraseña"
-                        value="#{empleadoLogin.password}"
-                        styleClass="input"
-                />
-            </div>
+           <div>
+               <h:inputSecret
+                       id="password"
+                       a:placeholder="Contraseña"
+                       value="#{empleadoLogin.password}"
+                       styleClass="input"
+                       required="true"
+                       requiredMessage="Error: Campo contraseña vacío"
+               />
+           </div>
 
-            <div>
-                <h:commandButton
-                        value="Ingresar"
-                        action="#{empleadoLogin.login()}"
-                        styleClass="button"
-                />
-            </div>
+           <div>
+               <h:commandButton
+                       value="Ingresar"
+                       action="#{empleadoLogin.login()}"
+                       styleClass="button"
+               />
+           </div>
 
-        </h:form>
+       </div>
 
-    </div>
+       <div class="alerts">
+           <h:messages globalOnly="false" errorClass="error"/>
+       </div>
+
+   </h:form>
 
 </h:body>
 

@@ -15,22 +15,27 @@
 
 <h:head>
     <h:outputStylesheet name="css/ClienteLogin.css"/>
-    <title>Inicio de Sesión</title>
+    <h:outputStylesheet name="css/ErrorAlerts.css"/>
+    <title>Iniciar Sesión</title>
 </h:head>
 
 <h:body>
 
-    <div class="container">
+    <h:form>
 
-        <h2 class="title">¡¡BIENVENIDO/A!!</h2>
+        <div class="container">
 
-        <h:form>
+            <h2 class="title">Bienvenido/a</h2>
+            <h4 class="title">Porfavor digite sus credenciales</h4>
+
             <div>
                 <h:inputText
                         id="username"
                         a:placeholder="Usuario"
                         value="#{clienteLogin.username}"
                         styleClass="input"
+                        required="true"
+                        requiredMessage="Error: Campo usuario vacío"
                 />
             </div>
             <div>
@@ -39,6 +44,8 @@
                         a:placeholder="Contraseña"
                         value="#{clienteLogin.password}"
                         styleClass="input"
+                        required="true"
+                        requiredMessage="Error: Campo contraseña vacío"
                 />
             </div>
             <div>
@@ -48,9 +55,14 @@
                         styleClass="button"
                 />
             </div>
-        </h:form>
 
-    </div>
+        </div>
+
+        <div class="alerts">
+            <h:messages globalOnly="false" errorClass="error"/>
+        </div>
+
+    </h:form>
 
 </h:body>
 

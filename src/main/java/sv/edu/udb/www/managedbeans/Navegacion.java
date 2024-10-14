@@ -8,7 +8,7 @@ import jakarta.faces.bean.ViewScoped;
 public class Navegacion {
 
     public String goToAperturaCuenta(){ return "/Empleados/AperturadeCuenta"; }
-
     public String goToPanelCajero(){ return "/Empleados/PanelCajero"; }
+    public String goToClienteLogin(){ return "/Clientes/ClienteLogin"; }
 
 }

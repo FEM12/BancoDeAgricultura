@@ -3,26 +3,25 @@ package sv.edu.udb.www.managedbeans;
 import sv.edu.udb.www.entities.Credencialcliente;
 import sv.edu.udb.www.utils.HibernateUtil;
 import static sv.edu.udb.www.utils.EncriptarContrasenaUtil.encriptarContrasena;
+import static sv.edu.udb.www.utils.JsfUtil.mensajeError;
+import static sv.edu.udb.www.utils.JsfUtil.mensajeExito;
 
-import jakarta.faces.application.FacesMessage;
 import jakarta.faces.bean.ManagedBean;
+import jakarta.faces.bean.SessionScoped;
 import jakarta.faces.bean.ViewScoped;
-import jakarta.faces.context.FacesContext;
 import java.io.Serializable;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class ClienteLogin implements Serializable{
 
     private String username;
     private String password;
 
-    public String getUsername() {
-        return username;
-    }
+    public String getUsername() { return username; }
     public void setUsername(String username) {
         this.username = username;
     }
@@ -51,11 +50,16 @@ public class ClienteLogin implements Serializable{
 
             tx.commit();
 
-            if (credencial != null) { return "PanelCliente"; }
+            if (credencial != null) {
+
+                mensajeExito("Haz iniciado sesión correctamente");
+                return "PanelCliente";
+
+            }
             else {
 
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed", "Invalid username or password"));
-                return "failure";
+                mensajeError("Error: Usuario o Contraseña incorrectos");
+                return "ClienteLogin";
 
             }
 

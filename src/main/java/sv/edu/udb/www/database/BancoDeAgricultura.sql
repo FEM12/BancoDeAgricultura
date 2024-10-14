@@ -11,7 +11,7 @@ create table Cliente(
     FechaDeNacimiento date not null,
     EstadoCivil varchar(12) not null,
     Ocupacion varchar(60) not null,
-    IngresoMensual decimal(6,2) not null,
+    IngresoMensual decimal(8,2) not null,
     TelefonoMovil char(9) not null,
     CorreoElectronico varchar(100) not null,
     Direccion text not null,
@@ -34,7 +34,7 @@ create table Dependiente(
     EstadoCivil varchar(12) not null,
     Negocio text not null,
     Ocupacion varchar(60) not null,
-    IngresoMensual decimal(6,2) not null,
+    IngresoMensual decimal(8,2) not null,
     TelefonoMovil char(9) not null,
     CorreoElectronico varchar(100) not null,
     Direccion text not null,
@@ -50,7 +50,7 @@ create table Cuenta(
     NumeroDeCuenta char(20) not null,
     TipoDeCuenta varchar(10) not null,
     FechaDeApertura date not null,
-    Saldo decimal(6,2) not null,
+    Saldo decimal(8,2) not null,
     Estado varchar(8) default 'Activa' not null,
     ID_Cliente int, -- Llave Foranea
     ID_Dependiente int, -- Llave Foranea
@@ -65,7 +65,7 @@ create table Transaccion(
     ID int auto_increment primary key not null,
     ID_CuentaOrigen int not null, -- Llave Foranea
     TipoDeTransaccion varchar(14) not null,
-    Monto decimal(6,2) not null,
+    Monto decimal(8,2) not null,
     FechaHora datetime not null,
     ID_CuentaDestino int, -- Llave Foranea
     ID_Empleado int, -- Llave Foranea
@@ -148,10 +148,10 @@ create table Prestamo(
 
      ID int auto_increment primary key not null,
      ID_Cliente int not null, -- Llave Foranea
-     Monto decimal(6,2) not null,
+     Monto decimal(8,2) not null,
      FechaHoraSolicitud datetime not null,
      Estado varchar(10) default 'En Espera' not null,
-     CuotaMensual decimal(6,2) default 0,
+     CuotaMensual decimal(8,2) default 0,
      PlazoAnios int default 0,
      Interes int default 0,
      FechaHoraRespuesta datetime,
@@ -309,11 +309,13 @@ values
 ('cajero8', sha2('empleado8', 256), 8, null),
 ('cajero9', sha2('empleado9', 256), 9, null),
 ('cajero10', sha2('empleado10', 256), 10, null),
+
 ('gerentedesucursal1', sha2('gerentedesucursal1', 256), null, 1),
 ('gerentedesucursal2', sha2('gerentedesucursal2', 256), null, 2),
 ('gerentedesucursal3', sha2('gerentedesucursal3', 256), null, 3),
 ('gerentedesucursal4', sha2('gerentedesucursal4', 256), null, 4),
 ('gerentedesucursal5', sha2('gerentedesucursal5', 256), null, 5),
+
 ('gerentegeneral', sha2('gerentegeneral', 256), null, 6);
 
 insert into Prestamo (ID_Cliente, Monto, FechaHoraSolicitud, Estado, CuotaMensual, PlazoAnios, Interes, FechaHoraRespuesta, MotivoDeRechazo, ID_Empleado)

@@ -172,13 +172,12 @@
                  </div>
                  <div class="form-row">
                      <div class="form-column">
-
                          <h:commandButton
-                                 value="Regresar al panel de control"
+                                 value="Regresar al dashboard"
                                  action="#{navegacion.goToPanelCajero()}"
                                  styleClass="input button-back"
+                                 immediate="true"
                          />
-
                      </div>
                      <div class="form-column">
                          <h:commandButton
@@ -193,19 +192,6 @@
          </div>
 
          <div class="alerts">
-             <h:messages for="nombres" errorClass="error"/>
-             <h:message for="apellidos" errorClass="error" />
-             <h:message for="genero" errorClass="error" />
-             <h:message for="documentoDeIdentidad" errorClass="error" />
-             <h:message for="fechaDeNacimiento" errorClass="error" />
-             <h:message for="estadoCivil" errorClass="error" />
-             <h:message for="ocupacion" errorClass="error" />
-             <h:message for="ingresoMensual" errorClass="error" />
-             <h:message for="direccion" errorClass="error" />
-             <h:message for="telefonoMovil" errorClass="error" />
-             <h:message for="correoElectronico" errorClass="error" />
-             <h:message for="clasificacionDeCliente" errorClass="error" />
-
              <h:messages globalOnly="false" errorClass="error" infoClass="success"/>
          </div>
 

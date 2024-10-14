@@ -3,14 +3,14 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
+    <h:outputStylesheet name="css/PanelCajero.css"/>
+    <h:outputStylesheet name="css/ErrorAlerts.css"/>
     <title>Panel del Cajero - Banco de Agricultura Salvadoreño</title>
-    <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="../resources/css/PanelCajero.css"/>
 </h:head>
 <h:body>
     <!-- Encabezado -->
     <header class="main-header">
-        <h1>Panel del Cajero - Banco de Agricultura Salvadoreño</h1>
+        <h1>Dashboard - Banco de Agricultura Salvadoreño</h1>
     </header>
 
     <!-- Menú de Navegación -->
@@ -210,8 +210,19 @@
         </div>
     </div>
 
+    <h:form>
+        <div class="alerts">
+            <h:messages globalOnly="false" infoClass="success"/>
+        </div>
+    </h:form>
+
     <!-- Script para la funcionalidad de cambio de secciones -->
     <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            showSection('clientes');
+        });
+
         function showSection(sectionId) {
             // Oculta todas las secciones
             document.querySelectorAll('.section').forEach(function(section) {

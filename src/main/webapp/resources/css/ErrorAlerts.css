@@ -1,9 +1,10 @@
 .alerts{
     width: 300px;
-    position: absolute;
+    position: fixed;
     padding: 0.4rem;
     bottom: 0;
     right: 0;
+    user-select: none;
 }
 
 span, li {

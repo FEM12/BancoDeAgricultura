@@ -1,41 +1,30 @@
 package sv.edu.udb.www.managedbeans;
 
-import sv.edu.udb.www.entities.Credencialcliente;
-import sv.edu.udb.www.utils.HibernateUtil;
+import sv.edu.udb.www.entities.Credencialempleado;
 import static sv.edu.udb.www.utils.EncriptarContrasenaUtil.encriptarContrasena;
+import sv.edu.udb.www.utils.HibernateUtil;
+import static sv.edu.udb.www.utils.JsfUtil.*;
 
-import jakarta.faces.application.FacesMessage;
 import jakarta.faces.bean.ManagedBean;
 import jakarta.faces.bean.ViewScoped;
-import jakarta.faces.context.FacesContext;
+import jakarta.faces.bean.SessionScoped;
 import java.io.Serializable;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class EmpleadoLogin implements Serializable{
 
     private String username;
     private String password;
 
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
 
     public String login() {
 
@@ -47,18 +36,25 @@ public class EmpleadoLogin implements Serializable{
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
 
-            Query<Credencialcliente> query = session.createQuery("FROM Credencialempleado WHERE usuario = :username AND contrasena = :password", Credencialcliente.class);
+            Query<Credencialempleado> query = session.createQuery("FROM Credencialempleado WHERE usuario = :username AND contrasena = :password AND idEmpleado != null", Credencialempleado.class);
             query.setParameter("username", username);
             query.setParameter("password", encriptarContrasena(password));
-            Credencialcliente credencial = query.uniqueResult();
+
+
+            Credencialempleado credencial = query.uniqueResult();
 
             tx.commit();
 
-            if (credencial != null) { return "PanelCajero"; }
+            if (credencial != null) {
+
+                mensajeExito("Haz iniciado sesión correctamente");
+                return "PanelCajero";
+
+            }
             else {
 
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login failed", "Invalid username or password"));
-                return "failure";
+                mensajeError("Error: Usuario o Contraseña incorrectos");
+                return "EmpleadoLogin";
 
             }
 

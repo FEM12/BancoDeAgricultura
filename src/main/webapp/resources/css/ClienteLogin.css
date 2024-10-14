@@ -5,7 +5,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna */
 }
 
-body {
+form {
     background-color: #004d40;
     display: flex;
     justify-content: center;
